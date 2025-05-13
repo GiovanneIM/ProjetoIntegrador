@@ -9,4 +9,4 @@
   <li>Giovannte Isaac Marques</li>
 </ul>
 
-<h2>Tema do Projeto: </h2>
+<h2>Tema do Projeto: Sistema de Locação de Veículos</h2>
