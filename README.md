@@ -10,5 +10,5 @@
 </ul>
 
 <h2>Tema do Projeto: Sistema de Locação de Veículos</h2>
-Criar um sistema para gerenciar locações de veículos, incluindo informações
-sobre carros, clientes e reservas.
+<span>Criar um sistema para gerenciar locações de veículos, incluindo informações
+sobre carros, clientes e reservas.</span>
