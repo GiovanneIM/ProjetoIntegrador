@@ -1,0 +1,246 @@
+body{
+    margin: 0;
+    background-color: #F0F8FF;
+    background-color: aliceblue;
+}
+
+/* ===============================================================================================  */
+
+header{
+    height: fit-content;
+    padding: 0 100px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #0A3D62;
+}
+
+.header-geral{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    /* background-color: red; */
+    width: 150px;
+    height: fit-content;
+}
+
+.login{
+    background-color: red;
+    margin: rigth;
+    width: 64px;
+    height: 64px;
+}
+
+footer{
+    background-color: #0A3D62;
+}
+
+/* ===============================================================================================  */
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 750px;
+    display: flex;
+}
+
+/* Imagem para o fundo do banner */
+.banner-img{
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Div para conter o conteúdo do banner */
+.banner-conteudo{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1272px;
+}
+
+/* Div para Conter o texto do banner */
+.banner-texto {
+    margin-top: 120px;
+    color: aliceblue;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.2;
+}
+  
+.banner-texto h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+/* BARRA DE ALUGUEL NO BANNER */
+.barra{
+    position: absolute;
+    bottom: 40px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 1.5rem;
+    width: 100%;
+    height: auto;
+    gap: 12px;
+
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+
+    flex-wrap: wrap;
+}
+
+/* ÍCONE NA BARRA */
+.barra-icone{
+    /* Div para conter os ícones da barra*/
+    margin-right: 1rem;
+    margin-left: 1rem;
+    color: #878787;
+    height: 100%;
+}
+
+.icone{
+    /* Imagem de ícone na barra */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+}
+
+/* ESPAÇO DA BARRA RESERVADO À INFORMAÇÕES DA CIDADE */
+.cidade{
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    height: 70px;
+    flex-grow: 1;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.cidade_forms{
+    /* Div cidade de retirada */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 50%;
+}
+
+.local-diferente{
+    /* Div devolver em local diferente */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: .5rem;
+    background-image: none;
+    --tw-text-opacity: 1;
+}
+
+.local-diferente span{
+    background: #d5d4d4;
+    color: #13100d;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+/* ESPAÇO DA BARRA RESERVADO ÀS INFORMAÇÕES DAS DATAS E HORAS */
+.data-hora{
+    background-color: transparent;
+    display: flex;
+    height: 70px;
+    flex-grow: 1;
+    gap: 0.5rem;
+}
+
+.data{
+    /* Div destinada à data */
+    display: flex;
+    height: 70px;
+    flex-grow: 1;
+
+    border: 1px solid #e5e7eb;
+    border-right: 0;
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+
+.data_forms{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+
+.hora{
+    /* Div destinada à hora */
+    height: 70px;
+    display: flex;
+    flex-grow: 1;
+    min-height: 25px;
+    min-width: 42px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+
+    border: 1px solid #e5e7eb;
+    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
+}
+
+.hora_forms{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+
+/* Botão de envio do formulário da barra */
+
+.barra input[type=text], .barra input[type=date], .barra input[type=time] {
+    border: none;
+    height: 2rem;
+}
+
+.barra button {
+    background-color: #37aee3;
+    color: white;
+
+    height: 70px;
+    width: 140px;
+    font-size: 24px;
+    font-weight: 700; 
+
+    border: 0px;
+    border-radius: 10px;
+}
+
+.barra input[type=submit] {
+    background-color: #37aee3;
+    color: white;
+
+    height: 70px;
+    width: 140px;
+    font-size: 24px;
+    font-weight: 700; 
+
+    border: 0px;
+    border-radius: 10px;
+}

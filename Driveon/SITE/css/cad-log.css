@@ -1,0 +1,116 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo{
+    height: 100%;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.formulario{
+    width: 440px;
+    padding: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.titulo-div{
+    display: flex;
+    justify-content: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 26px;
+}
+
+.texto-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'TeXGyreAdventorRegular';
+    font-size: 14px;
+}
+
+.titulo-div p {
+    margin: 0;
+}
+.texto-div p{
+    margin: 10px;
+}
+
+.input-div{
+    margin-top: 1rem;
+}
+
+input{
+    height: 2rem;
+    width: 100%;
+}
+
+input[type="date"]{
+    padding: 1px 2px
+}
+
+input[type=submit] {
+    background-color: #004aad;
+    color: white;
+    width: fit-content;
+    padding: 0 20px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    height: 0.8rem;
+    width: fit-content;
+}
+
+label{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: initial;
+    letter-spacing: 1px;
+    color: var(--text900);
+    font-size: inherit;
+    font-weight: 500;
+    overflow: hidden;
+}
+.label-checkbox{
+    font-size: 13px;
+    font-family: 'TeXGyreAdventorRegular';
+}
+
+.legenda{
+    margin-top: 16px;
+    font-size: 15px;
+    font-family: 'TeXGyreAdventorRegular';
+}
+
+.link_legenda{
+    color: #004aad;
+    text-decoration: underline;
+}
+
+button{
+    background-color: #004aad;
+    color: white;
+    width: fit-content;
+    padding: 0 20px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}

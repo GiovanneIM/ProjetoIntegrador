@@ -1,0 +1,238 @@
+ body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(17, 94, 182);
+
+ }
+    
+ 
+ 
+  header{
+      height: 80px;
+      align-items: center;
+      font-family: "Lato", sans-serif;
+      font-weight: 200px;
+      font-size: 27px;
+      font-style: normal;
+}
+
+
+
+.menu nav{
+    text-align: center;
+    justify-content: space-around;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    height: 10px;
+}
+  
+
+.menu nav a {
+    height: 5px;
+    text-decoration: none;
+    margin-left: 50px;
+    color: aliceblue;
+    position: relative;
+}
+
+.menu a::after{
+   content: " ";
+   width: 0%;
+   height: 4px;
+   background-color: aliceblue;
+   position:absolute;
+   bottom: 0;
+   left: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.menu a:hover::after{
+    width: 100%;
+
+}
+
+
+.secao1  {
+  display: flex;
+  align-items:center;
+  justify-content:left;
+}
+
+
+
+.secao1 h1{
+    font-size: 60px;
+    color: aliceblue;
+    font-family: "Lato", sans-serif;
+    justify-content:left;
+   
+
+
+ }
+
+ .secao1 p {
+    color: rgb(172, 176, 189);
+    font-size: 35px;
+    font-family:"Poiret One", sans-serif;
+    font-weight: 500;
+   
+    
+    
+    
+
+   
+ }
+
+
+.iniciodapagina{
+
+  background-image: url(../imagens/fotodecapa.jpg);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+ }
+
+.agendamento h1{
+
+    font-size: 30px;
+    color: rgb(11, 59, 102);
+    font-family: "Lato", sans-serif;
+    margin-left: 25%;
+    margin-top: 5%;
+
+}
+
+
+.quadrosecao1{
+  background-color: rgb(141, 145, 150);
+  height: 400px;
+  width: 900px;
+  justify-content: center;
+  margin-left:25% ;
+  border-radius: 15px 15px 15px 15px;
+   box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+
+}
+
+.quadrosecao1 h3{
+   color: rgb(221, 221, 228);
+    font-size: 35px;
+    font-family:"Poiret One", sans-serif;
+    font-weight: 600;
+   margin-bottom: 3%;
+   width: 20px;
+  
+
+}
+
+.quadrosecao1 p{
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(213, 213, 218);
+}
+
+.quadrosecao1 img{
+  border-radius: 15px 15px 15px 15px;
+  width: 60%;
+  margin-left: 65%;
+  height: 400px;
+  box-shadow: 3px 3px 4px  rgba(0,0,0,0.5);
+}
+
+.secao2{
+    background-color:white;
+    height: 600px;
+    width: 80%;
+    justify-content: center;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 4px 4px 4px 3px rgba(0,0,0,0.5);
+    margin-top: 35%;
+    margin-left: 15%
+}
+
+.secao2 h3{
+    font-size: 35px;
+    color: rgb(11, 59, 102);
+    font-family: "Lato", sans-serif;
+    text-align: center;
+
+}
+
+.secao2 p{
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  font-style: normal;
+  color: rgb(143, 143, 150);
+  text-align: center;
+
+}
+.secao2imagem1 img{
+    width:50%;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    display: inline-block;
+    margin-left: 10%;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+  
+}
+
+.secao2imagem1 img:hover{
+    transform: translateY(-10px); 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.secao2imagem2 img {
+    width:50%;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    display:inline-block;
+    margin-left: 1%;
+    cursor:pointer;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+}
+
+.secao2imagem2 img:hover{
+    transform: translateY(-10px); 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+.secao2imagem3 img{
+    width:50%;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    display: inline-block;
+    margin-left: 10%;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+
+    
+}
+
+.secao2imagem3 img:hover{
+    transform: translateY(-10px); 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.swiper .swiper-wrapper{
+ 
+  height: 700px;
+}
+
+
+ 
+
+
+
+  
+
+  
+

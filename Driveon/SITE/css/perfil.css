@@ -1,0 +1,175 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo{
+    margin-left: 15%;
+    margin-right: 15%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================================================================================== */
+/* CLASSES GERAIS */
+
+.quadro{
+    margin: 2.5rem 0;
+    /* width: 100%; */
+    height: auto;
+    padding: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+    /* display: flex; */
+}
+
+.titulo{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.subtitulo{
+    margin-top: 15px;
+    color: #777171;
+    font-size: x-large;
+}
+
+/* ========================================================================================================== */
+/* CLASSES DOS DADOS DO USUÁRIO */
+
+.div_imagem_usuario{
+    width: 25%;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem_usuario{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+}
+
+.div_informacoes_usuario{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.informacoes_usuario{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 25px 0;
+}
+
+.nome{
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.tabela{
+    display: grid;
+    row-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.info{
+    width: 100%;
+}
+
+.info_titulo{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info_conteudo{
+    font-size: 16px;
+}
+
+/* ========================================================================================================== */
+/* CLASSES DA ALTERAÇÃO DE DADOS */
+
+button{
+    background-color: #004aad;
+    color: white;
+    width: fit-content;
+    padding: 0 20px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input{
+    width: 60%;
+}
+
+.selecionarimagem{
+    display: flex;
+    justify-content: center;
+    background-color: darkgray;
+    width: 100%;
+    padding: 2px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+/* ========================================================================================================== */
+/* CLASSES DAS RESERVAS */
+
+.reservas{
+    border: 1px solid gray;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.reserva{
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+.imagem_carro{
+    height: 100px;
+    width: 150px;
+    padding-right: 15px;
+    border-right: 1px solid gray;
+}
+.imagem_carro img{
+    width: fit-content;
+    height: auto;
+}
+
+.infos_reserva{
+    display: flex;
+    width: 1000px;
+    padding-left: 15px;
+}
+.infos_reserva h1{
+    margin: 0;
+    font-size: 20px;
+    height: 25px;
+}
+.infos_reserva h2{
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+    height: 32px;
+}
