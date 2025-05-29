@@ -1,26 +1,5 @@
 [
     {
-        "img": "/imagens/padrao/usuario.png",
-        "CNH": "",
-        "endereco": {
-            "uf": "SP",
-            "cidade": "Santo André",
-            "bairro": "Vila América",
-            "rua": "Rua Marechal Rondon"
-        },
-        "nome": "Giovanne",
-        "nomecompleto": "Giovanne Isaac Marques",
-        "CPF": "527.273.558-74",
-        "nascimento": "2004-08-02",
-        "email": "giovanneim020804@gmail.com",
-        "senha": "12345",
-        "CEP": "09110-140",
-        "numerocasa": "160",
-        "complemento": "Ap",
-        "notifEmail": true,
-        "ID": 0
-    },
-    {
         "img": "/imagens/1/1748395728077-1.jpg",
         "CNH": "",
         "endereco": {
@@ -39,14 +18,27 @@
         "CEP": "09572-000",
         "numerocasa": "22",
         "complemento": "Ap 100",
-        "notifEmail": true,
         "ID": 1,
-        "telefone": "(99) 99999-9999",
-        "novo_nome": "Gilberto Queiroz Pereira",
-        "numero": "171",
-        "estado": "SP",
-        "cidade": "São Caetano do Sul",
-        "bairro": "Boa Vista",
-        "rua": "Rua Santo André"
+        "telefone": "(99) 99999-9999"
+    },
+    {
+        "img": "/usuario-img/padrao/usuario.png",
+        "CNH": "",
+        "endereco": {
+            "uf": "SP",
+            "cidade": "Santo André",
+            "bairro": "Vila América",
+            "rua": "Rua Marechal Rondon"
+        },
+        "nome": "Giovanne",
+        "nomecompleto": "Giovanne Isaac Marques",
+        "CPF": "527.273.558-74",
+        "nascimento": "2004-08-02",
+        "email": "giovanneim22@gmail.com",
+        "senha": "123",
+        "CEP": "09110-140",
+        "numerocasa": "160",
+        "complemento": "Ap 04",
+        "ID": 1
     }
 ]

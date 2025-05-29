@@ -1,3 +1,8 @@
+/*
+    CÓDIGO PARA ATUALIZAR DADOS DO USUÁRIO
+*/
+
+
 // Escolha de foto
 document.querySelector('.selecionarimagem').addEventListener('click', () => {
   document.querySelector('#fileUpload').click();
@@ -115,7 +120,16 @@ document.getElementById("btnSalvar").addEventListener('click', async function (e
             body: JSON.stringify(atualizado),
         })
         .then(res => res.json())
-        .then(dados => console.log('Dados enviados:',atualizado));
+        .then(dados => console.log('Dados enviados:',atualizado))
+        .catch(
+            Swal.fire({
+                confirmButtonColor: '#0e5a91',
+                title: 'Erro!',
+                html: `<b>Houve um erro ao se comunicar com a API</b><br>Não será possível fazer login, cadastrar-se ou visualizar dados.`,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        );
     }
 
     // Atualizando a imagem

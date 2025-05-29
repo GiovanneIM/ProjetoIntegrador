@@ -1,5 +1,6 @@
 /*
-    Função: Preencher campos com dados do usuário.
+
+    CÓDIGO PARA PREENCHER CAMPOS COM DADOS DOS USUÁRIOS
 
     Ex: Um campo que tiver a classe 'foto_user' é preenchido com 'usuario.imagem'
 
@@ -11,13 +12,14 @@
     'nascimento_user'       DD/MM/AAAA
     'email_user'            EMAIL
     'CEP_user'              CEP
-    'cidade-estado_user'    CIDADE + "-" + UF
+    'cidade-estado_user'    CIDADE + " - " + UF
     'bairro_user'           BAIRRO
     'rua_user'              RUA
     'numResidencia_user'    Nº da residência
     'compResidencia_user'   Complemento do endereço
     'CNH_user'              CNH
 */
+
 
 const LOGIN = false;
 const usuario = { 
@@ -38,8 +40,9 @@ const usuario = {
 // Verificando se há um usuário logado
 fetch('http://127.0.0.1:3000/verificar-login', {
     method: 'GET',
-    credentials: 'include' // Permite o uso de cookies da sessão
+    credentials: 'include'
 })
+// API RESPONDEU
 .then(response => {
     if (!response.ok) {
         throw new Error('Erro ao enviar os dados');
@@ -69,13 +72,20 @@ fetch('http://127.0.0.1:3000/verificar-login', {
         console.log("Sem usuário")
     }
 })
+// API NÃO RESPONDEU
 .catch(error => {
     console.error('Erro no envio:', error);
-    alert('Houve um erro ao fazer Login. Tente novamente mais tarde.');
+    Swal.fire({
+        confirmButtonColor: '#0e5a91',
+        title: 'Erro!',
+        html: `<b>Houve um erro ao se comunicar com a API</b><br>Não será possível fazer login, cadastrar-se ou visualizar dados.`,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+    })
 });
 
 
-
+// Função para exibir os elementos da página que alteram caso o usuário esteja ou não logado
 function alternarVisibilidade(estaLogado) {
     const logado = document.getElementsByClassName('logado');
     const naoLogado = document.getElementsByClassName('naoLogado');
@@ -141,27 +151,3 @@ function preencherCamposUsuario(usuario) {
         : "Cidade - UF";
     }
 }
-
-
-// <img src="http://120.0.0.1:3000/uploads/foto1.png" alt="Foto">
-
-
-
-
-// Usuário de teste
-// const usuario = { 
-//     id_user : 1,
-//     nome : "José", 
-//     sobrenome : "Carlos Henrique", 
-//     CPF: "123.456.789-10", 
-//     telefone: "(11) 12345-6789",
-//     nascimento : "02/08/2004", 
-//     email : "josécarlos@gmail.com", 
-//     senha : "12345", 
-//     CEP : "12345-123",
-//     endereco : { uf : "SP", cidade : "São Paulo", bairro : "Vila Brasil", rua : "Rua América", numerocasa : "123", complemento : "Ap 04" },
-//     notifEmail : false,
-//     imagem : "imagens/imagens-ParaTestes/fotoperfil-teste.jpg",
-//     nascimento : "01/01/2000",
-//     CNH : ""
-// };

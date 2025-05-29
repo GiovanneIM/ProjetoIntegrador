@@ -1,8 +1,5 @@
 body{
     margin: 0;
-    /* height: 100vh;
-    display: flex;
-    flex-direction: column; */
 }
 
 a{
@@ -49,7 +46,6 @@ header{
 }
 
 .header-texto{
-    /* width: 175px; */
     display: flex;
     align-items: center;
     color: white;
@@ -60,7 +56,6 @@ header{
 /* ========================================================================= */
 
 footer{
-    /* background-color: blueviolet; */
     display: flex;
     flex-direction: column;
     justify-content: center;

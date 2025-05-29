@@ -1,3 +1,8 @@
+/*
+    CÓDIGO PARA FAZER CADASTRO DE UM USUÁRIO
+*/
+
+
 const novoUser= {img: "/usuario-img/padrao/usuario.png", CNH: "", endereco: {}};
 
 
@@ -58,7 +63,8 @@ document.getElementById('CEP-input').addEventListener('input', async function (e
 
 
 // =====================================================
-
+// Obtendo o container
+const container = document.getElementById('container');
 
 // Clique no botão CONTINUAR (1ª div do cadastro)
 document.getElementById('cadastro-btnContinuar').addEventListener('click', function (event) { // Identifica quando o usuário clicou no botão 'Continuar'
@@ -89,16 +95,16 @@ document.getElementById('cadastro-btnContinuar').addEventListener('click', funct
     novoUser.email = document.getElementById('email-input').value.trim();
     novoUser.senha = document.getElementById('senha-input').value;
 
-    document.getElementById('cadastro1-div').style.display = 'none'; // Esconde o 1º formulário
-    document.getElementById('cadastro2-div').style.display = 'flex'; // Exibe o 2º formulário
+    // Movendo o container para exibir a 2ª parte do formulário
+    container.classList.add('form2');
 });
 
 // Clique no botão VOLTAR (2ª div do cadastro)
 document.getElementById('cadastro-btnVoltar').addEventListener('click', function (event) { // Identifica quando o usuário clicou no botão 'Continuar'
     event.preventDefault(); // Impede o envio do formulário
 
-    document.getElementById('cadastro1-div').style.display = 'flex'; // Exibe a 1ª formulário
-    document.getElementById('cadastro2-div').style.display = 'none'; // Esconde a 2ª formulário
+    // Movendo o container para exibir a 1ª parte do formulário
+    container.classList.remove('form2');
 });
 
 
@@ -120,15 +126,18 @@ document.getElementById('cadastro-btnCadastrar').addEventListener('click', funct
     novoUser.endereco.rua = document.getElementById('rua-input').value;
     novoUser.numerocasa = document.getElementById('numero-input').value.trim();
     novoUser.complemento = document.getElementById('complemento-input').value.trim();
-    novoUser.notifEmail = document.getElementById('notifemail') ? true : false;
 
     // console.log(novoUser);
     
     // Validando o CPF
-    if (novoUser.uf == 'undefined') {
+    if (!novoUser.endereco.uf || novoUser.endereco.uf === 'undefined') {
         alert(`${novoUser.CPF} não corresponde a um endereço válido, tente novamente`);
+        return;
     }
     else{
+        // Fazendo cadastro
+        let cadastrado = false;
+
         /* Consultando a API para cadastrar o User */
         fetch('http://127.0.0.1:3000/cadastrar', {
             method: 'POST',
@@ -148,12 +157,54 @@ document.getElementById('cadastro-btnCadastrar').addEventListener('click', funct
             /* Resposta da API */
             console.log('Resposta do servidor:', data);
             alert(data.mensagem);
+
+            const login = {
+                email: novoUser.email,
+                senha: novoUser.senha
+            }
+
+            fetch('http://127.0.0.1:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(login)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar os dados');
+                }
+                return response.json();
+            }).then(data => {
+                console.log('Resposta do servidor:', data.mensagem);
+
+                if (data.sucesso) {
+                    console.log('Resposta do servidor:', data.usuario);
+                    window.location.href = 'perfil.html'
+                }
+                else{
+                    alert(data.mensagem);
+                }
+            })
+            .catch(error => {
+                console.error('Erro no envio:', error);
+                alert('Houve um erro ao fazer Login. Tente novamente mais tarde.');
+            });
+
         })
         .catch(error => {
             /* Caso a API não responda */
             console.error('Erro no envio:', error);
-            alert('Houve um erro ao enviar o cadastro. Tente novamente mais tarde.');
+            Swal.fire({
+                confirmButtonColor: '#0e5a91',
+                title: 'Erro!',
+                html: `<b>Houve um erro ao se comunicar com a API</b><br>Não será possível fazer login, cadastrar-se ou visualizar dados.`,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
         });
+        
     }
 });
 

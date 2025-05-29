@@ -28,153 +28,155 @@
     </header>
     
     <div class="corpo">
-        <!-- PRIMEIRA DIV DO CADASTRO -->
-        <div class="formulario" id="cadastro1-div">
-            <!-- Título e texto -->
-            <div class="titulo-div"><p>Cadastro</p></div>
-            <div>
-                <div class="texto-div"><p><b>Bem Vindo à DriveON!</b></p></div>
-                <div class="texto-div"><span>Para dar inicio ao seu cadastro, prencha as informações abaixo</span></div>
+        <div class="container" id="container">
+            <!-- PRIMEIRA DIV DO CADASTRO -->
+            <div class="formulario" id="cadastro1-div">
+                <!-- Título e texto -->
+                <div class="titulo-div"><p>Cadastro</p></div>
+                <div>
+                    <div class="texto-div"><p><b>Bem Vindo à DriveON!</b></p></div>
+                    <div class="texto-div"><span>Para dar inicio ao seu cadastro, prencha as informações abaixo</span></div>
+                </div>
+
+                <!-- FORMULÁRIO -->
+                <form id="form1">
+                    <!-- NOME e SOBRENOME-->
+                    <div class="input-div" style="display: flex; justify-content: space-between;">
+                        <div class="input-div" style="width: 200px; margin: 0;">
+                            <label for="nome-input">Nome:</label><br>
+                            <input type="text" id="nome-input" placeholder="Insira seu nome" name="nome" required>
+                        </div>
+
+                        <div class="input-div" style="width: 200px;  margin: 0;">
+                            <label for="sobrenome-input">Sobrenome:</label><br>
+                            <input type="text" id="sobrenome-input" placeholder="Insira seu sobrenome" name="sobrenome" required>
+                        </div>
+                    </div>
+
+                    <!-- CPF E NASCIMENTO -->
+                    <div class="input-div" style="display: flex; justify-content: space-between;">
+                        <div class="input-div" style="width: 200px;  margin: 0;">
+                            <label for="CPF">CPF:</label><br>
+                            <input type="text" id="CPF" placeholder="Insira seu CPF (xxx.xxx.xxx-xx)" name="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                        </div>
+
+                        <div class="input-div" style="width: 200px;  margin: 0;">
+                            <label for="nascimento-input">Data de Nascimento:</label><br>
+                            <input type="date" id="nascimento-input" name="nascimento" required>
+                        </div>
+                    </div>
+
+                    <!-- E-MAIL -->
+                    <div class="input-div">
+                        <label for="email-input">E-mail:</label><br>
+                        <input type="text" id="email-input" placeholder="Insira seu endereço de e-mail" name="email" required>
+                    </div>
+
+                    <!-- SENHA E CONFIRMAÇÃO -->
+                    <div class="input-div" style="display: flex; justify-content: space-between;">
+                        <div class="input-div" style="width: 200px;  margin: 0;">
+                            <label for="senha-input">Senha:</label><br>
+                            <input type="password" id="senha-input" placeholder="Defina sua senha" name="senha" required>
+                        </div>
+
+                        <div class="input-div" style="width: 200px;  margin: 0;">
+                            <label for="confirmarsenha">Confirme sua senha:</label><br>
+                            <input type="password" id="confirmarsenha" placeholder="Defina sua senha" name="confirmarsenha" required>
+                        </div>
+                    </div>
+
+                    <!-- Botão para ir para a próxima div do  formulário -->
+                    <div class="input-div" style="display: flex; justify-content: center;">
+                        <button id="cadastro-btnContinuar" type="submit">Continuar</button>
+                    </div>
+                </form>
+
+                <!-- Ir para o LOGIN-->
+                <span class="legenda">Já é um cliente da MoveOn? <a href="login.html" class="link_legenda">Faça Login</a></span>
             </div>
 
-            <!-- FORMULÁRIO -->
-            <form id="form1">
-                <!-- NOME e SOBRENOME-->
-                <div class="input-div" style="display: flex; justify-content: space-between;">
-                    <div class="input-div" style="width: 200px; margin: 0;">
-                        <label for="nome-input">Nome:</label><br>
-                        <input type="text" id="nome-input" placeholder="Insira seu nome" name="nome" required>
-                    </div>
-
-                    <div class="input-div" style="width: 200px;  margin: 0;">
-                        <label for="sobrenome-input">Sobrenome:</label><br>
-                        <input type="text" id="sobrenome-input" placeholder="Insira seu sobrenome" name="sobrenome" required>
-                    </div>
-                </div>
-
-                <!-- CPF E NASCIMENTO -->
-                <div class="input-div" style="display: flex; justify-content: space-between;">
-                    <div class="input-div" style="width: 200px;  margin: 0;">
-                        <label for="CPF">CPF:</label><br>
-                        <input type="text" id="CPF" placeholder="Insira seu CPF (xxx.xxx.xxx-xx)" name="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-                    </div>
-
-                    <div class="input-div" style="width: 200px;  margin: 0;">
-                        <label for="nascimento-input">Data de Nascimento:</label><br>
-                        <input type="date" id="nascimento-input" name="nascimento" required>
-                    </div>
-                </div>
-
-                <!-- E-MAIL -->
-                <div class="input-div">
-                    <label for="email-input">E-mail:</label><br>
-                    <input type="text" id="email-input" placeholder="Insira seu endereço de e-mail" name="email" required>
-                </div>
-
-                <!-- SENHA E CONFIRMAÇÃO -->
-                <div class="input-div" style="display: flex; justify-content: space-between;">
-                    <div class="input-div" style="width: 200px;  margin: 0;">
-                        <label for="senha-input">Senha:</label><br>
-                        <input type="password" id="senha-input" placeholder="Defina sua senha" name="senha" required>
-                    </div>
-
-                    <div class="input-div" style="width: 200px;  margin: 0;">
-                        <label for="confirmarsenha">Confirme sua senha:</label><br>
-                        <input type="password" id="confirmarsenha" placeholder="Defina sua senha" name="confirmarsenha" required>
-                    </div>
-                </div>
-
-                <!-- Botão para ir para a próxima div do  formulário -->
-                <div class="input-div" style="display: flex; justify-content: center;">
-                    <button id="cadastro-btnContinuar" type="submit">Continuar</button>
-                </div>
-            </form>
-
-            <!-- Ir para o LOGIN-->
-            <span class="legenda">Já é um cliente da MoveOn? <a href="login.html" class="link_legenda">Faça Login</a></span>
-        </div>
-
-        <!-- LOGO -->
-        <div style="width: 50%;">
-            <img src="../../imagens/logo/logo-semtexto500px.png" style="width: 100%;">
-        </div>
-
-        <!-- SEGUNDA DIV DO CADASTRO -->
-        <div class="formulario" id="cadastro2-div" style="display: none;">
-            <!-- Título e Texto -->
-            <div class="titulo-div"><p>Cadastro</p></div>
-            <div>
-                <div class="texto-div"><span>Agora precisamos do seu endereço!</span></div>
+            <!-- LOGO -->
+            <div style="width: 650px;">
+                <img src="../../imagens/logo/logo-semtexto500px.png" style="width: 100%;">
             </div>
 
-            <!-- FORMULÁRIO -->
-            <form id="form2">
-                <!-- CEP e ESTADO-->
-                <div class="input-div" style="display: flex; justify-content: space-between;">
-                    <div style="width:200px">
-                        <label for="CEP-input">CEP:</label><br>
-                        <input type="text" id="CEP-input" placeholder="CEP (XXXXX-XXX)" name="CEP" pattern="\d{5}-\d{3}" required>
+            <!-- SEGUNDA DIV DO CADASTRO -->
+            <div class="formulario" id="cadastro2-div">
+                <!-- Título e Texto -->
+                <div class="titulo-div"><p>Cadastro</p></div>
+                <div>
+                    <div class="texto-div"><span>Agora precisamos do seu endereço!</span></div>
+                </div>
+
+                <!-- FORMULÁRIO -->
+                <form id="form2">
+                    <!-- CEP e ESTADO-->
+                    <div class="input-div" style="display: flex; justify-content: space-between;">
+                        <div style="width:200px">
+                            <label for="CEP-input">CEP:</label><br>
+                            <input type="text" id="CEP-input" placeholder="CEP (XXXXX-XXX)" name="CEP" pattern="\d{5}-\d{3}" required>
+                        </div>
+                        
+                        <div style="width:200px">
+                            <label for="estado-input">Estado:</label><br>
+                            <input type="text" id="estado-input" name="estado" readonly style="background-color: #ededed;">
+                        </div>
+                    </div>
+
+                    <!-- CIDADE -->
+                    <div class="input-div">
+                        <label for="cidade-input">Cidade:</label><br>
+                        <input type="text" id="cidade-input" name="cidade" readonly style="background-color: #ededed;">
+                    </div>
+
+                    <!-- BAIRRO -->
+                    <div class="input-div">
+                        <label for="bairro-input">Bairro:</label><br>
+                        <input type="text" id="bairro-input" name="bairro" readonly style="background-color: #ededed;">
+                    </div>
+
+                    <!-- RUA -->
+                    <div class="input-div">
+                        <label for="rua-input">Rua:</label><br>
+                        <input type="text" id="rua-input" name="rua" readonly style="background-color: #ededed;">
+                    </div>
+
+                    <!-- NÚMERO e COMPLEMENTO-->
+                    <div class="input-div" style="display: flex; justify-content: space-between;">
+                        <div style="width:200px">
+                            <label for="numero-input">Número:</label><br>
+                            <input type="text" id="numero-input" placeholder="Número da residência" name="numero" required>
+                        </div>
+
+                        <div style="width:200px">
+                            <label for="complemento-input">Complemento:</label><br>
+                            <input type="text" id="complemento-input" placeholder="" name="complemento">
+                        </div>
+                    </div>
+
+                    <!-- CHECKBOX -->
+                    <div style="margin: 10px 0;">
+                        <div style="width:100%">
+                            <input type="checkbox" id="notifemail" name="notifemail" checked>
+                            <label for="notifemail" class="label-checkbox">Aceito receber notificações por email.</label><br>
+                        </div>
+
+                        <div style="width:100%">
+                            <input type="checkbox" id="termoscondicoes" name="termoscondicoes" required>
+                            <label for="termoscondicoes" class="label-checkbox">Li e concordo com os Termos e Condições da MoveOn.</label><br>
+                        </div>
                     </div>
                     
-                    <div style="width:200px">
-                        <label for="estado-input">Estado:</label><br>
-                        <input type="text" id="estado-input" name="estado" readonly style="background-color: #ededed;">
+                    <!-- BOTÃO VOLTAR e CADASTRAR -->
+                    <div class="input-div" style="display: flex; justify-content: space-around;">
+                        <button id="cadastro-btnVoltar" type="button">Voltar</button>
+                        <button id="cadastro-btnCadastrar" type="submit">Cadastrar</button>
                     </div>
-                </div>
+                </form>
 
-                <!-- CIDADE -->
-                <div class="input-div">
-                    <label for="cidade-input">Cidade:</label><br>
-                    <input type="text" id="cidade-input" name="cidade" readonly style="background-color: #ededed;">
-                </div>
-
-                <!-- BAIRRO -->
-                <div class="input-div">
-                    <label for="bairro-input">Bairro:</label><br>
-                    <input type="text" id="bairro-input" name="bairro" readonly style="background-color: #ededed;">
-                </div>
-
-                <!-- RUA -->
-                <div class="input-div">
-                    <label for="rua-input">Rua:</label><br>
-                    <input type="text" id="rua-input" name="rua" readonly style="background-color: #ededed;">
-                </div>
-
-                <!-- NÚMERO e COMPLEMENTO-->
-                <div class="input-div" style="display: flex; justify-content: space-between;">
-                    <div style="width:200px">
-                        <label for="numero-input">Número:</label><br>
-                        <input type="text" id="numero-input" placeholder="Número da residência" name="numero" required>
-                    </div>
-
-                    <div style="width:200px">
-                        <label for="complemento-input">Complemento:</label><br>
-                        <input type="text" id="complemento-input" placeholder="" name="complemento">
-                    </div>
-                </div>
-
-                <!-- CHECKBOX -->
-                <div style="margin: 10px 0;">
-                    <div style="width:100%">
-                        <input type="checkbox" id="notifemail" name="notifemail" checked>
-                        <label for="notifemail" class="label-checkbox">Aceito receber notificações por email.</label><br>
-                    </div>
-
-                    <div style="width:100%">
-                        <input type="checkbox" id="termoscondicoes" name="termoscondicoes" required>
-                        <label for="termoscondicoes" class="label-checkbox">Li e concordo com os Termos e Condições da MoveOn.</label><br>
-                    </div>
-                </div>
-                
-                <!-- BOTÃO VOLTAR e CADASTRAR -->
-                <div class="input-div" style="display: flex; justify-content: space-around;">
-                    <button id="cadastro-btnVoltar" type="button">Voltar</button>
-                    <button id="cadastro-btnCadastrar" type="submit">Cadastrar</button>
-                </div>
-            </form>
-
-            <!-- Ir para o LOGIN -->
-            <span class="legenda">Já é um cliente da MoveOn? <a href="login.html" class="link_legenda">Faça Login</a></span>
+                <!-- Ir para o LOGIN -->
+                <span class="legenda">Já é um cliente da MoveOn? <a href="login.html" class="link_legenda">Faça Login</a></span>
+            </div>
         </div>
     </div>
 

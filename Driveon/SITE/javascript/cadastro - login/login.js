@@ -1,3 +1,6 @@
+/*
+    CÓDIGO PARA FAZER LOGIN
+*/
 
 
 const form = document.getElementById('formulario-login');
@@ -11,7 +14,6 @@ document.getElementById('formulario-login').addEventListener('submit', function 
     const login = {
         email: formData.get('email').trim(),
         senha: formData.get('senha').trim()
-
     }
 
     // Consultando API
@@ -41,6 +43,12 @@ document.getElementById('formulario-login').addEventListener('submit', function 
     })
     .catch(error => {
         console.error('Erro no envio:', error);
-        alert('Houve um erro ao fazer Login. Tente novamente mais tarde.');
+        Swal.fire({
+            confirmButtonColor: '#0e5a91',
+            title: 'Erro!',
+            html: `<b>Houve um erro ao se comunicar com a API</b><br>Não será possível fazer login, cadastrar-se ou visualizar dados.`,
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        })
     });
 });
