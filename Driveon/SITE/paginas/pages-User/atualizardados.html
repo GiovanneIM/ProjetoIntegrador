@@ -3,38 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DriveOn - Perfil</title>
+    <title>DriveOn - Atualizar Dados</title>
     <link rel="icon" href="../../imagens/logo/logo-semtexto.png" type="image/x-icon">
 
     <link href="../../css/perfil.css" rel="stylesheet">
-
-    <link href="../../css/header-footer.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/> <!-- Fonte header -->
-
+    <link href="../../css/geral/header-footer.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/>     <!-- Fonte header -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <!-- Sweetalert -->
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <div class="header-geral">
-                <a href="../../index.html">
-                    <div>
-                        <div style="display: flex;">
-                            <div><img class="header-icone" src="../../imagens/logo/logo-semtexto.png"></div>
-                            <div class="header-texto"><span style="line-height: 1;"><span style="font-size: 33px;"><b>DriveOn</b></span><br><span style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
-                        </div>
-                    </div>
-                </a>
+        <button class="open-btn" id="openBtn" onclick="openSidebar()">☰</button>
 
-                <a href="perfil.html" >
+        <div class="header-geral">
+            <a href="../../index.html">
+                <div>
                     <div style="display: flex;">
-                        <div style="position: relative; margin-right: 10px;">
-                            <img class="header-icone" src="../../imagens/setas/seta.png">
-                            <img class="header-fotousuario foto_user" src="../../">
-                        </div>
-                        <div class="header-texto"><span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b class="nome_user"></b></span></div>
+                        <div><img class="header-icone" src="../../imagens/logo/logo-semtexto.png"></div>
+                        <div class="header-texto"><span style="line-height: 1;"><span style="font-size: 33px;"><b>DriveOn</b></span><br><span style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
                     </div>
-                </a>
+                </div>
+            </a>
+
+            <a href="../../paginas/pages-User/login.html" class="naoLogado">
+                <div style="display: flex;">
+                    <img class="header-icone" src="../../imagens/setas/login.png">
+                    <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
+                </div>
+            </a>
+
+            <a href="../../paginas/pages-User/perfil.html" class="logado">
+                <div style="display: flex;">
+                    <div style="position: relative; margin-right: 10px;">
+                        <img class="header-icone" src="../../imagens/setas/seta.png">
+                        <img class="header-fotousuario foto_user" src="">
+                    </div>
+                    <div class="header-texto"><span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b class="nome_user"></b></span></div>
+                </div>
+            </a>
         </div>
     </header>
+
+    <!-- BARRA FIXADA -->
+    <div class="barraFixada" id="barraFixada">
+        <button class="barraFixada-open-btn" id="openBtn" onclick="openSidebar()">☰</button>
+    </div>
+
+    <!-- ========================================================== -->
 
 
     <div class="corpo" style="height: auto;">
