@@ -1,19 +1,5 @@
-body{
-    background-color: rgb(202, 58, 58);
-}
 
-header{
-    background-color: #103c60;
-    color: aliceblue;
-    height: 80px;
-    align-items: center;
-    font-size: 27px;
-    font-family: "Lato", sans-serif;
-    font-weight: 200;
-    font-size: 27px;
-    font-style: normal;
-    justify-content: space-around;  
-}
+
 
 .banner{
     position:relative;

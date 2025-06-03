@@ -1,25 +1,29 @@
 [
     {
-        "img": "/imagens/1/1748395728077-1.jpg",
+        "img": "/imagens/1/1748525188011-1.jpg",
         "CNH": "",
         "endereco": {
             "uf": "SP",
-            "cidade": "São Caetano do Sul",
-            "bairro": "Boa Vista",
-            "rua": "Rua Santo André",
+            "cidade": "Santo André",
+            "bairro": "Vila América",
+            "rua": "Rua Marechal Rondon",
             "estado": "SP"
         },
-        "nome": "Gilberto",
-        "nomecompleto": "Gilberto Queiroz Pereira",
-        "CPF": "123.456.789-99",
-        "nascimento": "8888-08-08",
+        "nome": "Giovanne",
+        "nomecompleto": "Giovanne Isaac Marques",
+        "CPF": "527.273.558-74",
+        "nascimento": "2025-05-01",
         "email": "joao.souza@gmail.com",
         "senha": "12345",
-        "CEP": "09572-000",
-        "numerocasa": "22",
-        "complemento": "Ap 100",
+        "CEP": "09110-140",
+        "numerocasa": "160",
+        "complemento": "Ap 04",
         "ID": 1,
-        "telefone": "(99) 99999-9999"
+        "telefone": "(21) 96621-3198",
+        "estado": "SP",
+        "cidade": "Santo André",
+        "bairro": "Vila América",
+        "rua": "Rua Marechal Rondon"
     },
     {
         "img": "/usuario-img/padrao/usuario.png",

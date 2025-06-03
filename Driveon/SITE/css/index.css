@@ -1,0 +1,23 @@
+.tabela{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.celula{
+    background-color: white;
+    width: 25%;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.txt_estado{
+    
+}
+
+.txt_estado{
+
+}

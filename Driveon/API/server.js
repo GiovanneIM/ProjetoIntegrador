@@ -21,7 +21,7 @@ const reservas = f_dados.carregarReservas();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../SITE')));                                       // Disponibilizando as páginas do site
+app.use(express.static(path.join(__dirname, '../SITE')));                             // Disponibilizando as páginas do site
 app.use('/imagens/padrao', express.static(path.join(__dirname, 'imagens/padrao')));   // Disponibilizando a pasta de imagens padrões
 
 
@@ -191,12 +191,12 @@ app.get('/imagens/:id/:imagem', (req, res) => {
     res.sendFile(caminhoImagem);
 });
 
-// /* Lógica para fazer LOGOUT */
-// app.get('/logout', (req, res) => {
-//   req.session.destroy(() => {
-//     res.json({ mensagem: 'Logout realizado com sucesso.' });
-//   });
-// });
+/* Lógica para fazer LOGOUT */
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.json({ mensagem: 'Logout realizado com sucesso.' });
+  });
+});
 
 
 

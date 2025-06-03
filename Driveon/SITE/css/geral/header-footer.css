@@ -1,0 +1,212 @@
+body{
+    margin: 0;
+    background-color: #f4f4f4;
+    transition: .5s;
+    font-family: 'Roboto', sans-serif
+}
+
+a{
+    text-decoration: none;
+}
+
+/* CORPO DA PÁGINA */
+.corpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.titulo{
+    font-size: 50px;
+    width: 100%;
+    /* color: rgb(11, 59, 102); */
+    text-align: center;
+    font-family: "Lato", sans-serif;
+}
+
+/* ========================================================================= */
+
+header{
+    height: fit-content;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #0A3D62;
+}
+
+.header-geral{
+    width: 77%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_DriveOn{
+    width: 200px;
+}
+
+.header-icone{
+    width: 50px;
+    margin-right: 5px;
+}
+
+.header-fotousuario{
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    border: 2px #0A3D62 solid;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.header-texto{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: 'TeXGyreAdventorRegular', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* ========================================================================= */
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer_div{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    border-top: 1px solid #ccc;
+}
+
+.footer_div div{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer span, footer p{
+    color: #575756;
+    margin: 0;
+}
+
+.redessociais{
+    display: flex;
+    gap: 0.7rem;
+}
+
+.redessociais .logo{
+    width: 35px;
+}
+
+
+/* ================================================================================ */
+
+/* Botão para abrir */
+.open-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    height: 50px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.close-btn {
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    background-color: #0A3D62;
+    overflow-x: hidden;
+    z-index: 1001;
+    transform: translateX(-280px);
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar a {
+    font-family: "Varela Round", sans-serif;
+    width: 210px;
+    padding: 15px;
+    /* border-top: 1px solid white; */
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Fundo escurecido quando a sidebar estiver aberta */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+    transition: 0.5s;
+}
+
+
+/* Barra fixada para quando o usuário rodar a tela */
+.barraFixada {
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #0A3D62;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+
+    transform: translateY(-71px);
+    transition: transform 0.5s ease;
+}
+
+.barraFixada-open-btn {
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}

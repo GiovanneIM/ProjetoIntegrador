@@ -4,7 +4,7 @@ body{
     flex-direction: column;
 }
 
-.corpo{
+.corpo-cadlog{
     display: flex;
     align-items: center;
     width: 1300px;
@@ -24,9 +24,8 @@ body{
     transform: translateX(-650px);
 }
 
-
-
 .formulario{
+    background-color: white;
     width: 440px;
     padding: 48px;
     border: 1px solid #ccc;

@@ -6,15 +6,23 @@
     <title>DriveOn</title>
     <link rel="icon" href="imagens/logo/logo-semtexto.png" type="image/x-icon">
 
-    <link href="css/home.css" rel="stylesheet"/>
-    <link href="css/header-footer.css" rel="stylesheet"/>
+    <!-- Links específicos-->
+    <link href="css/index.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/> <!-- Fonte Header-->
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Links Gerais -->
+    <link href="css/geral/header-footer.css" rel="stylesheet"/>
+    <link href="css/geral/banner.css" rel="stylesheet"/>
+    <link href="css/geral/barrareserva.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/>     <!-- Fonte header -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <!-- Sweetalert -->
 </head>
 <body>
+    <!-- HEADER -->
     <header>
+        <button class="open-btn" id="openBtn" onclick="openSidebar()">☰</button>
+
         <div class="header-geral">
             <a href="index.html">
                 <div>
@@ -38,11 +46,71 @@
                         <img class="header-icone" src="imagens/setas/seta.png">
                         <img class="header-fotousuario foto_user" src="">
                     </div>
-                    <div class="header-texto"><span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b class="nome_user"></b></span></div>
+                    
+                    <div class="header-texto">
+                        <span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b class="nome_user"></b></span>
+                    </div>
                 </div>
             </a>
         </div>
     </header>
+
+
+    <!-- BARRA FIXADA -->
+    <div class="barraFixada" id="barraFixada">
+        <button class="barraFixada-open-btn" id="openBtn" onclick="openSidebar()">☰</button>
+    </div>
+      
+      
+    <!-- BARRA LATERAL -->
+    <div class="sidebar" id="sidebar">
+        <!-- LOGIN  ou USUÁRIO-->
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div style="display: flex;">
+                    <a href="paginas/pages-User/login.html" class="naoLogado" style="width: 150px;">
+                        <div style="display: flex;">
+                            <img class="header-icone" src="imagens/setas/login.png">
+                            <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
+                        </div>
+                    </a>
+
+                    <a href="paginas/pages-User/perfil.html" class="logado">
+                        <div style="display: flex;">
+                            <div style="position: relative; margin-right: 10px;">
+                                <img class="header-icone" src="imagens/setas/seta.png">
+                                <img class="header-fotousuario foto_user" src="">
+                            </div>
+                            <div class="header-texto"><span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;"><b class="nome_user"></b></span></div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="close-btn" id="closeBtn" onclick="closeSidebar()">☰</div>
+            </div>
+
+            <!-- NAVEGAÇÃO -->
+            <a href="index.html">Página Inicial</a>
+            <a href="paginas/pages-User/perfil.html" class="logado">Meu perfil</a>
+            <a href="paginas/cadastro.html">Ajuda</a>
+            <a href="paginas/sobre_nos_teste.html">Sobre Nós</a>
+            <a href="index.html" class="logado logout">Sair</a>
+        </div>
+
+        <!-- LOGO -->
+        <a href="index.html" style="margin-bottom: 15px;">
+            <div style="display: flex;">
+                <div><img class="header-icone" src="imagens/logo//logo-semtexto.png"></div>
+                <div class="header-texto"><span style="line-height: 1;"><span style="font-size: 33px;"><b>DriveOn</b></span><br><span style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
+            </div>
+        </a>
+    </div>
+    <!-- DIV ESCURA E TRANSPARENTE PARA ESCURECER A PÁGINA-->
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+
+    <!-- ========================================================== -->
+
 
     <!-- BANNER -->
     <div class="banner">
@@ -132,12 +200,31 @@
     </div>
 
 
+    <!-- ========================================================== -->
     
     
-    <div><br><br><br><br></div>
+    <!-- CORPO -->
+    <div class="corpo">
+        <h1 class="titulo">Selecione sua Unidade Federativa</h1>
+
+        <div class="tabela">
+            <div class="celula">
+                <h3>São Paulo</h3>
+                <p></p>
+            </div>
+            <div class="celula"></div>
+            <div class="celula"></div>
+            <div class="celula"></div>
+            <div class="celula"></div>
+            <div class="celula"></div>
+        </div>
+    </div>
 
 
+    <!-- ========================================================== -->
 
+
+    <!-- FOOTER -->
     <footer>
         <!-- <div class="footer_div"></div> -->
         <div class="footer_div">
@@ -175,44 +262,17 @@
         </div>
     </footer>
 
-    <script>
-        /* Testando a barra no banner */
-        document.getElementById('busca').addEventListener('submit', function(event) {
-          event.preventDefault(); // impede envio padrão (útil para testar no navegador)
-      
-          const form = event.target;
-          const dados = new FormData(form);
-      
-          // Exemplo: acessar valores específicos
-          const cidadeRetirada = dados.get('cidade-retirada');
-          const cidadeDevolucao = dados.get('cidade-devolucao');
-          const dataRetirada = dados.get('data-retirada');
-          const horaRetirada = dados.get('hora-retirada');
-          const dataDevolucao = dados.get('data-devolucao');
-          const horaDevolucao = dados.get('hora-devolucao');
-      
-          console.log('Cidade Retirada:', cidadeRetirada);
-          console.log('Cidade Devolucao:', cidadeDevolucao);
-          console.log('Data Retirada:', dataRetirada);
-          console.log('Hora Retirada:', horaRetirada);
-          console.log('Hora Devolucao:', dataDevolucao);
-          console.log('Hora Devolucao:', horaDevolucao);
-      
-          // Se quiser converter tudo para objeto:
-          const objetoDados = Object.fromEntries(dados);
-          console.log(objetoDados);
-        });
-    </script>
 
-    <script>
-        /* Troca a div com "Devolver em local diferente" por um input */
-        function trocarPorInput() {
-            document.getElementById('local-diferente').style.display = 'none';
-            document.getElementById('cidade-devolucao-div').style.display = 'flex';
-            document.getElementById('cidade-devolucao').focus(); // opcional: foca no input automaticamente
-        }
-    </script>
+    <!-- ========================================================== -->
 
-    <script src="javascript/usuarios/variaveisdeusuario.js"></script>
+    
+    <!-- SCRIPTS específicos -->
+    <script></script>
+
+    <!-- SCRIPTS gerais -->
+    <script src="javascript/geral/variavelUsuario.js"></script>
+    <script src="javascript/geral/sidebar.js"></script>
+    <script src="javascript/geral/barrareserva.js"></script>
+    
 </body>
 </html>
