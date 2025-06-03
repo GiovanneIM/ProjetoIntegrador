@@ -111,7 +111,7 @@ document.getElementById("btnSalvar").addEventListener('click', async function (e
 
     // Atualizando os dados
     if (Object.keys(atualizado).length > 0) {
-        fetch('http://127.0.0.1:3000/atualizardados', {
+        fetch('http://10.84.6.135:3000/atualizardados', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -138,7 +138,7 @@ document.getElementById("btnSalvar").addEventListener('click', async function (e
         const formData = new FormData();
         formData.append('foto', inputFoto.files[0]);
 
-        fetch('http://127.0.0.1:3000/alterar-foto', {
+        fetch('http://10.84.6.135:3000/alterar-foto', {
             method: 'POST',
             credentials: 'include',
             body: formData
