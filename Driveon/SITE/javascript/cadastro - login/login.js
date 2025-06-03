@@ -17,7 +17,7 @@ document.getElementById('formulario-login').addEventListener('submit', function 
     }
 
     // Consultando API
-    fetch('http://10.84.6.135:3000/login', {
+    fetch('http://127.0.0.1:3000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -38,11 +38,7 @@ const usuario = {
 };
 
 /* Verificando se há um usuário logado */
-<<<<<<< HEAD
 fetch('http://127.0.0.1:3000/verificar-login', {
-=======
-fetch('http://10.84.6.135:3000/verificar-login', {
->>>>>>> cb52129add77ea7073312461802664fd81a19710
     method: 'GET',
     credentials: 'include'
 })
@@ -164,11 +160,7 @@ function preencherCamposUsuario(usuario) {
 const saidas = document.getElementsByClassName('logout');
 for (const saida of saidas) {
     saida.addEventListener('click', async function (e) {
-<<<<<<< HEAD
         fetch('http://127.0.0.1:3000/logout', {
-=======
-        fetch('http://10.84.6.135:3000/logout', {
->>>>>>> cb52129add77ea7073312461802664fd81a19710
             method: 'GET',
             credentials: 'include'
         })

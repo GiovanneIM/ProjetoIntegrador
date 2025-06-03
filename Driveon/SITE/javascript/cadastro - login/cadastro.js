@@ -139,7 +139,7 @@ document.getElementById('cadastro-btnCadastrar').addEventListener('click', funct
         let cadastrado = false;
 
         /* Consultando a API para cadastrar o User */
-        fetch('http://10.84.6.135:3000/cadastrar', {
+        fetch('http://127.0.0.1:3000/cadastrar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -163,7 +163,7 @@ document.getElementById('cadastro-btnCadastrar').addEventListener('click', funct
                 senha: novoUser.senha
             }
 
-            fetch('http://10.84.6.135:3000/login', {
+            fetch('http://127.0.0.1:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
