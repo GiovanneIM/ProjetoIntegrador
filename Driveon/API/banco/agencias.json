@@ -1,0 +1,380 @@
+[
+  {
+    "ID": 1,
+    "Estado": "AC",
+    "Nome": "DriveOn Rio Branco",
+    "CEP": "69900-660",
+    "Endereco": "Av. Getúlio Vargas, 1020, Centro, Rio Branco - AC"
+  },
+  {
+    "ID": 2,
+    "Estado": "AC",
+    "Nome": "DriveOn Via Verde",
+    "CEP": "69918-120",
+    "Endereco": "Estrada da Floresta, 1400, Floresta, Rio Branco - AC"
+  },
+  {
+    "ID": 3,
+    "Estado": "AL",
+    "Nome": "DriveOn Maceió",
+    "CEP": "57035-180",
+    "Endereco": "Av. Álvaro Otacílio, 2350, Ponta Verde, Maceió - AL"
+  },
+  {
+    "ID": 4,
+    "Estado": "AL",
+    "Nome": "DriveOn Shopping",
+    "CEP": "57038-000",
+    "Endereco": "Av. Comendador Gustavo Paiva, 2990, Mangabeiras, Maceió - AL"
+  },
+  {
+    "ID": 5,
+    "Estado": "AP",
+    "Nome": "DriveOn Macapá",
+    "CEP": "68900-070",
+    "Endereco": "Av. FAB, 950, Central, Macapá - AP"
+  },
+  {
+    "ID": 6,
+    "Estado": "AP",
+    "Nome": "DriveOn Zona Norte",
+    "CEP": "68908-280",
+    "Endereco": "Rua Hamilton Silva, 1234, Jesus de Nazaré, Macapá - AP"
+  },
+  {
+    "ID": 7,
+    "Estado": "AM",
+    "Nome": "DriveOn Manaus Centro",
+    "CEP": "69010-001",
+    "Endereco": "Av. Eduardo Ribeiro, 1120, Centro, Manaus - AM"
+  },
+  {
+    "ID": 8,
+    "Estado": "AM",
+    "Nome": "DriveOn Ponta Negra",
+    "CEP": "69037-000",
+    "Endereco": "Av. Coronel Teixeira, 5705, Ponta Negra, Manaus - AM"
+  },
+  {
+    "ID": 9,
+    "Estado": "BA",
+    "Nome": "DriveOn Salvador",
+    "CEP": "41820-020",
+    "Endereco": "Av. Tancredo Neves, 1285, Caminho das Árvores, Salvador - BA"
+  },
+  {
+    "ID": 10,
+    "Estado": "BA",
+    "Nome": "DriveOn Iguatemi",
+    "CEP": "41830-001",
+    "Endereco": "Av. ACM, 4500, Iguatemi, Salvador - BA"
+  },
+  {
+    "ID": 11,
+    "Estado": "CE",
+    "Nome": "DriveOn Fortaleza",
+    "CEP": "60165-121",
+    "Endereco": "Av. Beira Mar, 3200, Meireles, Fortaleza - CE"
+  },
+  {
+    "ID": 12,
+    "Estado": "CE",
+    "Nome": "DriveOn Shopping RioMar",
+    "CEP": "60175-055",
+    "Endereco": "R. Lauro Nogueira, 1500, Papicu, Fortaleza - CE"
+  },
+  {
+    "ID": 13,
+    "Estado": "DF",
+    "Nome": "DriveOn Asa Sul",
+    "CEP": "70300-902",
+    "Endereco": "SCS Quadra 2, Bloco C, Brasília - DF"
+  },
+  {
+    "ID": 14,
+    "Estado": "DF",
+    "Nome": "DriveOn Aeroporto",
+    "CEP": "71608-900",
+    "Endereco": "Área externa do Aeroporto Internacional de Brasília, Lago Sul - DF"
+  },
+  {
+    "ID": 15,
+    "Estado": "ES",
+    "Nome": "DriveOn Vitória",
+    "CEP": "29055-131",
+    "Endereco": "Av. Nossa Senhora da Penha, 2100, Praia do Canto, Vitória - ES"
+  },
+  {
+    "ID": 16,
+    "Estado": "ES",
+    "Nome": "DriveOn Vila Velha",
+    "CEP": "29100-020",
+    "Endereco": "Av. Champagnat, 1800, Centro, Vila Velha - ES"
+  },
+  {
+    "ID": 17,
+    "Estado": "GO",
+    "Nome": "DriveOn Goiânia",
+    "CEP": "74230-040",
+    "Endereco": "Av. T-63, 1125, Setor Bueno, Goiânia - GO"
+  },
+  {
+    "ID": 18,
+    "Estado": "GO",
+    "Nome": "DriveOn Centro",
+    "CEP": "74043-011",
+    "Endereco": "Av. Anhanguera, 4560, Centro, Goiânia - GO"
+  },
+  {
+    "ID": 19,
+    "Estado": "MA",
+    "Nome": "DriveOn São Luís",
+    "CEP": "65071-380",
+    "Endereco": "Av. dos Holandeses, 1300, Calhau, São Luís - MA"
+  },
+  {
+    "ID": 20,
+    "Estado": "MA",
+    "Nome": "DriveOn Shopping",
+    "CEP": "65076-820",
+    "Endereco": "Av. Professor Carlos Cunha, 1000, Jaracaty, São Luís - MA"
+  },
+  {
+    "ID": 21,
+    "Estado": "MT",
+    "Nome": "DriveOn Cuiabá",
+    "CEP": "78050-000",
+    "Endereco": "Av. Historiador Rubens de Mendonça, 1500, Bosque da Saúde, Cuiabá - MT"
+  },
+  {
+    "ID": 22,
+    "Estado": "MT",
+    "Nome": "DriveOn CPA",
+    "CEP": "78055-000",
+    "Endereco": "Av. do CPA, 2750, Morada da Serra, Cuiabá - MT"
+  },
+  {
+    "ID": 23,
+    "Estado": "MS",
+    "Nome": "DriveOn Campo Grande",
+    "CEP": "79002-972",
+    "Endereco": "Av. Afonso Pena, 4200, Centro, Campo Grande - MS"
+  },
+  {
+    "ID": 24,
+    "Estado": "MS",
+    "Nome": "DriveOn Shopping Campo Grande",
+    "CEP": "79031-010",
+    "Endereco": "Av. Afonso Pena, 4909, Santa Fé, Campo Grande - MS"
+  },
+  {
+    "ID": 25,
+    "Estado": "MG",
+    "Nome": "DriveOn Belo Horizonte",
+    "CEP": "30110-130",
+    "Endereco": "Av. Contorno, 9000, Funcionários, BH - MG"
+  },
+  {
+    "ID": 26,
+    "Estado": "MG",
+    "Nome": "DriveOn Pampulha",
+    "CEP": "31270-000",
+    "Endereco": "Av. Antônio Carlos, 6500, Pampulha, BH - MG"
+  },
+  {
+    "ID": 27,
+    "Estado": "PA",
+    "Nome": "DriveOn Belém",
+    "CEP": "66035-170",
+    "Endereco": "Av. Nazaré, 2020, Nazaré, Belém - PA"
+  },
+  {
+    "ID": 28,
+    "Estado": "PA",
+    "Nome": "DriveOn Parque Shopping",
+    "CEP": "66825-000",
+    "Endereco": "Rod. Augusto Montenegro, 4300, Parque Verde, Belém - PA"
+  },
+  {
+    "ID": 29,
+    "Estado": "PB",
+    "Nome": "DriveOn João Pessoa",
+    "CEP": "58040-000",
+    "Endereco": "Av. Epitácio Pessoa, 2555, Tambauzinho, João Pessoa - PB"
+  },
+  {
+    "ID": 30,
+    "Estado": "PB",
+    "Nome": "DriveOn Manaíra",
+    "CEP": "58038-000",
+    "Endereco": "Av. Flávio Ribeiro Coutinho, 500, Manaíra, João Pessoa - PB"
+  },
+  {
+    "ID": 31,
+    "Estado": "PR",
+    "Nome": "DriveOn Curitiba",
+    "CEP": "80250-210",
+    "Endereco": "Av. Sete de Setembro, 4350, Batel, Curitiba - PR"
+  },
+  {
+    "ID": 32,
+    "Estado": "PR",
+    "Nome": "DriveOn Aeroporto Afonso Pena",
+    "CEP": "83010-620",
+    "Endereco": "Av. Rocha Pombo, 2725, São José dos Pinhais - PR"
+  },
+  {
+    "ID": 33,
+    "Estado": "PE",
+    "Nome": "DriveOn Recife",
+    "CEP": "51021-000",
+    "Endereco": "Av. Boa Viagem, 4200, Boa Viagem, Recife - PE"
+  },
+  {
+    "ID": 34,
+    "Estado": "PE",
+    "Nome": "DriveOn Shopping Recife",
+    "CEP": "51020-280",
+    "Endereco": "R. Padre Carapuceiro, 777, Boa Viagem, Recife - PE"
+  },
+  {
+    "ID": 35,
+    "Estado": "PI",
+    "Nome": "DriveOn Teresina",
+    "CEP": "64000-020",
+    "Endereco": "Av. Frei Serafim, 1200, Centro, Teresina - PI"
+  },
+  {
+    "ID": 36,
+    "Estado": "PI",
+    "Nome": "DriveOn Riverside",
+    "CEP": "64049-230",
+    "Endereco": "R. Clodoaldo Freitas, 950, Fátima, Teresina - PI"
+  },
+  {
+    "ID": 37,
+    "Estado": "RJ",
+    "Nome": "DriveOn Copacabana",
+    "CEP": "22021-001",
+    "Endereco": "Av. Atlântica, 2000, Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "ID": 38,
+    "Estado": "RJ",
+    "Nome": "DriveOn Barra",
+    "CEP": "22640-102",
+    "Endereco": "Av. das Américas, 5000, Barra da Tijuca, RJ"
+  },
+  {
+    "ID": 39,
+    "Estado": "RN",
+    "Nome": "DriveOn Natal",
+    "CEP": "59090-000",
+    "Endereco": "Av. Eng. Roberto Freire, 3500, Ponta Negra, Natal - RN"
+  },
+  {
+    "ID": 40,
+    "Estado": "RN",
+    "Nome": "DriveOn Midway Mall",
+    "CEP": "59015-900",
+    "Endereco": "Av. Bernardo Vieira, 3775, Tirol, Natal - RN"
+  },
+  {
+    "ID": 41,
+    "Estado": "RS",
+    "Nome": "DriveOn Porto Alegre",
+    "CEP": "90610-000",
+    "Endereco": "Av. Ipiranga, 4000, Jardim Botânico, Porto Alegre - RS"
+  },
+  {
+    "ID": 42,
+    "Estado": "RS",
+    "Nome": "DriveOn Aeroporto Salgado Filho",
+    "CEP": "90200-310",
+    "Endereco": "Av. Severo Dullius, 800, São João, Porto Alegre - RS"
+  },
+  {
+    "ID": 43,
+    "Estado": "RO",
+    "Nome": "DriveOn Porto Velho",
+    "CEP": "76801-058",
+    "Endereco": "Av. 7 de Setembro, 2230, Centro, Porto Velho - RO"
+  },
+  {
+    "ID": 44,
+    "Estado": "RO",
+    "Nome": "DriveOn Shopping",
+    "CEP": "76820-377",
+    "Endereco": "Av. Pref. Chiquilito Erse, 3485, Embratel, Porto Velho - RO"
+  },
+  {
+    "ID": 45,
+    "Estado": "RR",
+    "Nome": "DriveOn Boa Vista",
+    "CEP": "69301-150",
+    "Endereco": "Av. Ene Garcez, 2120, Centro, Boa Vista - RR"
+  },
+  {
+    "ID": 46,
+    "Estado": "RR",
+    "Nome": "DriveOn Caçari",
+    "CEP": "69309-370",
+    "Endereco": "Av. das Guianas, 1200, Caçari, Boa Vista - RR"
+  },
+  {
+    "ID": 47,
+    "Estado": "SC",
+    "Nome": "DriveOn Florianópolis",
+    "CEP": "88025-202",
+    "Endereco": "Av. Beira-Mar Norte, 2600, Centro, Florianópolis - SC"
+  },
+  {
+    "ID": 48,
+    "Estado": "SC",
+    "Nome": "DriveOn Shopping Iguatemi",
+    "CEP": "88035-000",
+    "Endereco": "Av. Madre Benvenuta, 687, Santa Mônica, Florianópolis - SC"
+  },
+  {
+    "ID": 49,
+    "Estado": "SP",
+    "Nome": "DriveOn Paulista",
+    "CEP": "01310-200",
+    "Endereco": "Av. Paulista, 1578, Bela Vista, São Paulo - SP"
+  },
+  {
+    "ID": 50,
+    "Estado": "SP",
+    "Nome": "DriveOn Aeroporto Congonhas",
+    "CEP": "04627-005",
+    "Endereco": "Av. Washington Luís, 6000, Campo Belo, São Paulo - SP"
+  },
+  {
+    "ID": 51,
+    "Estado": "SE",
+    "Nome": "DriveOn Aracaju",
+    "CEP": "49020-010",
+    "Endereco": "Av. Beira Mar, 1300, 13 de Julho, Aracaju - SE"
+  },
+  {
+    "ID": 52,
+    "Estado": "SE",
+    "Nome": "DriveOn Shopping Jardins",
+    "CEP": "49025-740",
+    "Endereco": "Av. Ministro Geraldo Barreto Sobral, 215, Jardins, Aracaju - SE"
+  },
+  {
+    "ID": 53,
+    "Estado": "TO",
+    "Nome": "DriveOn Palmas",
+    "CEP": "77015-012",
+    "Endereco": "Av. JK, 1500, Plano Diretor Sul, Palmas - TO"
+  },
+  {
+    "ID": 54,
+    "Estado": "TO",
+    "Nome": "DriveOn Capim Dourado",
+    "CEP": "77006-562",
+    "Endereco": "Av. NS-02, 3050, Capim Dourado Shopping, Palmas - TO"
+  }
+]
