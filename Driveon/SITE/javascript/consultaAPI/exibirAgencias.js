@@ -1,5 +1,3 @@
-let estados;
-
 fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
     method: 'GET',
     credentials: 'include'
@@ -11,7 +9,7 @@ fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
     return response.json();
 })
 .then(data => {
-    estados = data.estados;
+    const estados = data.estados;
     const agencias = data.agencias;
 
     for (const estado in estados) {
