@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "agencia_ID": 1,
+        "imagem": "/imagens/veiculos/blazereevrs.png",
+        "marca": "Chevrolet",
+        "modelo": "Blazer EV",
+        "preco": "89,75",
+        "disponivel": true,
+        "ID": 0,
+        "anoFabricacao": 2025
+    },
+    {
+        "agencia_ID": 1,
+        "imagem": "/imagens/veiculos/montana.png",
+        "marca": "Chevrolet",
+        "modelo": "Montana",
+        "preco": "110,75",
+        "disponivel": true,
+        "ID": 1,
+        "anoFabricacao": 2024
+    }
+]

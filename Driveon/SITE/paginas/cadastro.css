@@ -297,4 +297,14 @@ body.dark{
 }
 
 
+.footer_link{
+    text-decoration: none;
+    color: black;
+}
+
+.footer_link :hover{
+    text-decoration: underline;
+}
+
+
 

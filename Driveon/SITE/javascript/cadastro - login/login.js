@@ -38,7 +38,12 @@ document.getElementById('formulario-login').addEventListener('submit', function 
             window.location.href = 'perfil.html'
         }
         else{
-            alert(data.mensagem);
+            Swal.fire({
+                confirmButtonColor: '#0e5a91',
+                html: `<b>${data.mensagem}<b>`,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
         }
     })
     .catch(error => {

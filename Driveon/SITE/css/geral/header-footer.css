@@ -1,6 +1,7 @@
 body{
     margin: 0;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: #fafbfc;
     transition: .5s;
     font-family: 'Roboto', sans-serif
 }
@@ -209,4 +210,13 @@ footer span, footer p{
     border: none;
     cursor: pointer;
     font-size: 20px;
+}
+
+.footer_link{
+    text-decoration: none;
+    color: black;
+}
+
+.footer_link :hover{
+    text-decoration: underline;
 }

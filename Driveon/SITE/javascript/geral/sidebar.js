@@ -11,9 +11,9 @@ function closeSidebar() {
 window.addEventListener('scroll', function () {
     const barra = document.getElementById('barraFixada');
     if (window.scrollY > 90) { // só aparece após rolar 90px
-      barra.style.transform = 'translateY(0px)';
+        barra.style.transform = 'translateY(0px)';
     } else {
-      barra.style.transform = 'translateY(-71px)';
+        barra.style.transform = 'translateY(-71px)';
     }
 });
 
@@ -24,17 +24,45 @@ let trilho = document.getElementById('trilho');
 let body = document.querySelector('body');
 
 let claro = true
-trilho.addEventListener('click', ()=>{
+trilho.addEventListener('click', () => {
     trilho.classList.toggle('dark');
     body.classList.toggle('dark');
 
-    if (claro){
+    if (claro) {
         claro = false;
         document.getElementById('iconeTema').src = "../imagens/diversos/lua.png"
+        document.getElementsByClassName('imagem-1').src = "../imagens/logo/logo-txtbranco.png"
+        document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtbranco.png"
+
+        const links = document.getElementsByClassName('footer_link');
+        for (const link of links) {
+            link.style.color = 'white'
+
+            let titulos = document.getElementsByClassName("titulo")
+            for (const titulo of titulos) {
+                titulo.style.color = "#FFFF"
+            }
+
+            let imagens = document.getElementsByClassName("imagem-1")
+            for(const imagem of imagens){
+                imagem.getElementsByClassName = "../imagens/logo/logo-txtpreto.png"
+            }
+        }
     }
-    else{
+    else {
         claro = true;
         document.getElementById('iconeTema').src = "../imagens/diversos/sol.png"
+        document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtpreto.png"
+        document.getElementsByClassName('imagem-1').src = "../imagens/logo/logo-txtpreto.png"
+
+
+        const links = document.getElementsByClassName('footer_link');
+        for (const link of links) {
+            link.style.color = 'black'
+        }
     }
-    
+
+
+   
+
 })

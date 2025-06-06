@@ -46,7 +46,6 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
-    font-family: 'TeXGyreAdventorRegular';
     font-size: 14px;
 }
 
@@ -105,7 +104,6 @@ label{
 .legenda{
     margin-top: 16px;
     font-size: 15px;
-    font-family: 'TeXGyreAdventorRegular';
 }
 
 .link_legenda{

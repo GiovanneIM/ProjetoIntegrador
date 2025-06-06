@@ -1,6 +1,6 @@
 [
     {
-        "img": "/imagens/1/1748525188011-1.jpg",
+        "img": "/imagens/usuarios/1/1748525188011-1.jpg",
         "CNH": "",
         "endereco": {
             "uf": "SP",
@@ -26,7 +26,7 @@
         "rua": "Rua Marechal Rondon"
     },
     {
-        "img": "/usuario-img/padrao/usuario.png",
+        "img": "/imagens/usuarios/padrao/usuario.png",
         "CNH": "",
         "endereco": {
             "uf": "SP",
@@ -44,5 +44,52 @@
         "numerocasa": "160",
         "complemento": "Ap 04",
         "ID": 1
+    },
+    {
+        "img": "/imagens/usuarios/2/1749122977176-2.jpg",
+        "CNH": "",
+        "endereco": {
+            "uf": "SP",
+            "cidade": "Santo André",
+            "bairro": "Vila América",
+            "rua": "Rua Marechal Rondon"
+        },
+        "nome": "teste",
+        "nomecompleto": "teste teste",
+        "CPF": "123.456.789-10",
+        "nascimento": "1010-10-10",
+        "email": "joao@gmail.com",
+        "senha": "1234",
+        "CEP": "09110-140",
+        "numerocasa": "10",
+        "complemento": "",
+        "ID": 2,
+        "busca": "1"
+    },
+    {
+        "img": "/imagens/usuarios/3/1749044196665-3.jpg",
+        "CNH": "",
+        "endereco": {
+            "uf": "SP",
+            "cidade": "São Caetano do Sul",
+            "bairro": "Boa Vista",
+            "rua": "Rua Santo André",
+            "estado": "SP"
+        },
+        "nome": "Selena",
+        "nomecompleto": "Selena Gomez",
+        "CPF": "123.654.789-25",
+        "nascimento": "2006-01-17",
+        "email": "marina.montagnini17@gmail.com",
+        "senha": "12345",
+        "CEP": "09572-000",
+        "numerocasa": "444",
+        "complemento": "casa",
+        "ID": 3,
+        "telefone": "(11) 99254-5685",
+        "estado": "SP",
+        "cidade": "São Caetano do Sul",
+        "bairro": "Boa Vista",
+        "rua": "Rua Santo André"
     }
 ]

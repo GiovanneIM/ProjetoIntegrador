@@ -21,8 +21,9 @@ const reservas = f_dados.carregarReservas();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../SITE')));                             // Disponibilizando as páginas do site
-app.use('/imagens/padrao', express.static(path.join(__dirname, 'imagens/padrao')));   // Disponibilizando a pasta de imagens padrões
+app.use(express.static(path.join(__dirname, '../SITE')));                                      // Disponibilizando as páginas do site
+app.use('/imagens/padrao', express.static(path.join(__dirname, 'imagens/usuarios/padrao')));   // Disponibilizando a pasta de imagens padrões
+app.use('/imagens/padrao', express.static(path.join(__dirname, 'imagens/veiculos')));          // Disponibilizando a pasta de imagens dos veiculos
 
 
 app.use(session({
@@ -45,7 +46,7 @@ app.use((req, res, next) => {
 // Define onde e como salvar as imagens de perfil dos usuários
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      const pastaUsuario = path.join(__dirname, 'imagens', String(req.session.usuarioId));
+      const pastaUsuario = path.join(__dirname, 'imagens', 'usuarios', String(req.session.usuarioId));
   
       // Cria a pasta do usuário se ela não existir
       fs.mkdirSync(pastaUsuario, { recursive: true });
@@ -122,7 +123,6 @@ app.post('/cadastrar', (req, res) => {
   res.json({ mensagem: 'Usuário cadastrado com sucesso! Volte à página de Login.' });
 });
 
-
 /* Lógica para ATUALIZAR DADOS */
 app.post('/atualizardados', (req, res) => {
   if (!req.usuario) {
@@ -167,7 +167,7 @@ app.post('/alterar-foto', upload.single('foto'), (req, res) => {
         });
     }
 
-    usuario.img = `/imagens/${req.session.usuarioId}/${req.file.filename}`; // Caminho para a pasta onde está a imagem do usuário
+    usuario.img = `/imagens/usuarios/${req.session.usuarioId}/${req.file.filename}`; // Caminho para a pasta onde está a imagem do usuário
     f_dados.salvarUsuarios(usuarios);
     console.log("imagem atualizada");
     res.json({nome_imagem: req.file.filename});
@@ -175,7 +175,7 @@ app.post('/alterar-foto', upload.single('foto'), (req, res) => {
 
 
 /* Lógica para acessar a imagem do usuário */
-app.get('/imagens/:id/:imagem', (req, res) => {
+app.get('/imagens/usuarios/:id/:imagem', (req, res) => {
     const { id, imagem } = req.params;
   
     // Verifica se o usuário está logado e é o dono da imagem
@@ -183,7 +183,7 @@ app.get('/imagens/:id/:imagem', (req, res) => {
       return res.status(403).send('Acesso negado');
     }
   
-    const caminhoImagem = path.join(__dirname, 'imagens', id, imagem);
+    const caminhoImagem = path.join(__dirname, 'imagens', 'usuarios', id, imagem);
     if (!fs.existsSync(caminhoImagem)) {
       return res.status(404).send('Imagem não encontrada');
     }
@@ -193,40 +193,66 @@ app.get('/imagens/:id/:imagem', (req, res) => {
 
 /* Lógica para fazer LOGOUT */
 app.get('/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.json({ mensagem: 'Logout realizado com sucesso.' });
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ mensagem: 'Erro ao encerrar a sessão.' });
+    }
+
+    // Limpa o cookie de sessão no cliente (se estiver usando o padrão `connect.sid`)
+    res.clearCookie('connect.sid');
+
+    return res.json({ mensagem: 'Logout realizado com sucesso.' });
   });
 });
 
 
 
-// VEÍCULOS
+/* =============== Rotas de AGÊNCIAS ========================== */
+
+// Rotas de AGÊNCIAS
+const rotasAgencias = require('./rotas/rotasAgencias.js');
+app.use('/agencias', rotasAgencias);
+/* Acessadas por meio de http://IP_API/agencias/__(rota)___ */
 
 
 
+/* =============== Rotas de VEÍCULOS ========================== */
+// Rotas de VEÍCULOS
+const rotasVeiculos = require('./rotas/rotasVeiculos.js');
+app.use('/veiculos', rotasVeiculos);
+/* Acessadas por meio de http://IP_API/veiculos/__(rota)___ */
 
-// RESERVAS
+/* Lógica para acessar a imagem do veiculo */
+app.get('/imagens/veiculos/:imagem', (req, res) => {
+  const { imagem } = req.params;
 
-/* Lógica para reservar um veículo */
-app.post('/fazerReserva', (req, res) => {
-  if (!req.usuario) {
-    return res.status(401).json({ mensagem: 'Você precisa estar logado.' });
+  // Verifica se o usuário está logado e é o dono da imagem
+
+  const caminhoImagem = path.join(__dirname, 'imagens', 'veiculos', imagem);
+  if (!fs.existsSync(caminhoImagem)) {
+    return res.status(404).send('Imagem não encontrada');
   }
 
-  const usuario = usuarios.find(u => u.ID === req.usuario.ID);
-
-  if (usuario.img && !usuario.img.includes('usuario.png')){
-      const caminhoImagemAntiga = path.join(__dirname, usuario.img.replace(/^\//, ''));
-      fs.unlink(caminhoImagemAntiga, err => {
-          if (err) console.error('Erro ao apagar imagem antiga:', err);
-      });
-  }
-
-  usuario.img = `/imagens/${req.session.usuarioId}/${req.file.filename}`; // Caminho para a pasta onde está a imagem do usuário
-  f_dados.salvarUsuarios(usuarios);
-  console.log("imagem atualizada");
-  res.json({nome_imagem: req.file.filename});
+  res.sendFile(caminhoImagem);
 });
+
+
+
+/* =============== Rotas de RESERVAS ========================== */
+// Rotas de RESERVAS
+const rotasReservas = require('./rotas/rotasReservas.js');
+app.use('/reservas', rotasReservas);
+/* Acessadas por meio de http://IP_API/reservas/__(rota)___ */
+
+/* Lógica para guardar a agência na qual o usuário está fazendo uma busca */
+app.post('/fazerBusca', (req, res) => {
+  req.usuario.busca = req.body.id;
+});
+
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@
 */
 
 
-const novoUser= {img: "/usuario-img/padrao/usuario.png", CNH: "", endereco: {}};
+const novoUser= {img: "/imagens/padrao/usuario.png", CNH: "", endereco: {}};
 
 
 // =====================================================
@@ -156,7 +156,6 @@ document.getElementById('cadastro-btnCadastrar').addEventListener('click', funct
         .then(data => {
             /* Resposta da API */
             console.log('Resposta do servidor:', data);
-            alert(data.mensagem);
 
             const login = {
                 email: novoUser.email,
