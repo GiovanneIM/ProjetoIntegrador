@@ -18,6 +18,11 @@ window.addEventListener('scroll', function () {
 });
 
 
+
+
+
+
+
 // Altera o tema
 
 let trilho = document.getElementById('trilho');
@@ -31,8 +36,11 @@ trilho.addEventListener('click', () => {
     if (claro) {
         claro = false;
         document.getElementById('iconeTema').src = "../imagens/diversos/lua.png"
-        document.getElementsByClassName('imagem-1').src = "../imagens/logo/logo-txtbranco.png"
         document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtbranco.png"
+
+        document.getElementById('imagem_logo').src = "../imagens/logo/logo-txtbranco.png"
+        document.getElementById('paragrafo-footer');
+
 
         const links = document.getElementsByClassName('footer_link');
         for (const link of links) {
@@ -43,17 +51,24 @@ trilho.addEventListener('click', () => {
                 titulo.style.color = "#FFFF"
             }
 
+            let paragrafos =document.getElementsByClassName('paragrafo-footer')
+            for(const paragrafo of paragrafos){
+                paragrafo.style.color = "white"
+            }
+
             let imagens = document.getElementsByClassName("imagem-1")
             for(const imagem of imagens){
                 imagem.getElementsByClassName = "../imagens/logo/logo-txtpreto.png"
             }
         }
     }
+
     else {
         claro = true;
         document.getElementById('iconeTema').src = "../imagens/diversos/sol.png"
         document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtpreto.png"
-        document.getElementsByClassName('imagem-1').src = "../imagens/logo/logo-txtpreto.png"
+
+        document.getElementById('imagem_logo').src = "../imagens/logo/logo-txtpreto.png"
 
 
         const links = document.getElementsByClassName('footer_link');
@@ -61,8 +76,5 @@ trilho.addEventListener('click', () => {
             link.style.color = 'black'
         }
     }
-
-
-   
 
 })
