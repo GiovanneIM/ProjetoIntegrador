@@ -91,5 +91,45 @@
         "cidade": "São Caetano do Sul",
         "bairro": "Boa Vista",
         "rua": "Rua Santo André"
+    },
+    {
+        "img": "/imagens/padrao/usuario.png",
+        "CNH": "",
+        "endereco": {
+            "uf": "SP",
+            "cidade": "São Caetano do Sul",
+            "bairro": "Boa Vista",
+            "rua": "Rua Santo André"
+        },
+        "nome": "Paloma",
+        "nomecompleto": "Paloma de Souza",
+        "CPF": "000.000.000-00",
+        "nascimento": "2000-02-12",
+        "email": "palomarrdesouza@gamail.com",
+        "senha": "123",
+        "CEP": "09572-000",
+        "numerocasa": "680",
+        "complemento": "Senai",
+        "ID": 4
+    },
+    {
+        "img": "/imagens/usuarios/5/1749467998056-5.jpg",
+        "CNH": "",
+        "endereco": {
+            "uf": "SP",
+            "cidade": "São Caetano do Sul",
+            "bairro": "Boa Vista",
+            "rua": "Rua Santo André"
+        },
+        "nome": "Yasmin",
+        "nomecompleto": "Yasmin Marques",
+        "CPF": "123.654.987-45",
+        "nascimento": "1850-12-11",
+        "email": "yasmin.marques11@outlook.com",
+        "senha": "senai123",
+        "CEP": "09572-000",
+        "numerocasa": "680",
+        "complemento": "Senai",
+        "ID": 5
     }
 ]

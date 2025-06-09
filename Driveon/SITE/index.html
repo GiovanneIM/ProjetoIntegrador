@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DriveOn</title>
+    <title>DriveOn - Busca</title>
     <link rel="icon" href="imagens/logo/logo-semtexto.png" type="image/x-icon">
 
     <!-- Links específicos-->
@@ -15,8 +15,17 @@
     <link href="css/geral/banner.css" rel="stylesheet"/>
     <link href="css/geral/barrareserva.css" rel="stylesheet"/>
     
+
     <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/>     <!-- Fonte header -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <!-- Sweetalert -->
+
+    
+
+    <!-- FLATPICKR -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">                <!-- CSS do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>                                              <!-- JS do flatpickr -->
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">   <!-- Tema do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>                  <!-- plugin do flatpickr-->
 </head>
 <body>
     <!-- HEADER -->
@@ -145,18 +154,18 @@
                                 <div class="cidade_forms" style="border-right: 1px solid #e5e7eb;">
                                     <div class="div_estado">
                                         <label for="uf_ret">Estado</label>
-                                        <select id="uf_ret" name="UnidadeFederativa">
+                                        <select id="uf_ret" name="uf_ret">
                                         </select>
                                     </div>
 
                                     <div class="div_agencia">
                                         <label for="ag_ret">Agencia</label>
-                                        <select id="ag_ret" name="agencia">
+                                        <select id="ag_ret" name="ag_ret">
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="local-diferente" onclick="trocarPorInput()" id="local-diferente">
+                                <div class="local-diferente" onclick="exibirSelectDev()" id="local-diferente">
                                     <span> + Devolver em um lugar diferente</span>
 
                                 </div>
@@ -164,13 +173,13 @@
                                 <div class="cidade_forms" id="cidade-devolucao-div" style="display: none;">
                                     <div class="div_estado">
                                         <label for="uf_dev">Estado</label>
-                                        <select id="uf_dev" name="estado">
+                                        <select id="uf_dev" name="uf_dev">
                                         </select>
                                     </div>
 
                                     <div class="div_agencia">
                                         <label for="ag_dev">Agencia</label>
-                                        <select id="ag_dev" name="agencia">
+                                        <select id="ag_dev" name="ag_dev">
                                         </select>
                                     </div>
                                 </div>
@@ -182,7 +191,7 @@
                     <div class="data-hora">
                         <div class="barra-icone">
                             <img class="icone" src="../imagens/diversos/data.png">
-                        </div>   
+                        </div>
 
                         <div>
                             <div>
@@ -191,18 +200,19 @@
 
                             <div style="width: fit-content; display: flex;">
                                 <div class="data_forms">
-                                    <label for="data-retirada">Data</label>
-                                    <input type="date" id="data-retirada" name="data-retirada" required />
+                                    <label for="data_ret">Data</label>
+                                    <input class="" id="data_ret" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
                                 </div>
-                                
+
                                 <div class="hora_forms">
-                                    <label for="hora-retirada">Hora</label>
-                                    <input type="time" id="hora-retirada" name="hora-retirada" required />
+                                    <label for="hora_ret">Hora</label>
+                                    <select class="hora" id="hora_ret" name="hora_ret">
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Dia e hora de DEVOLUÇÃO -->
                     <div class="data-hora">
                         <div class="barra-icone">
@@ -214,15 +224,15 @@
                             </div>
 
                             <div style="width: fit-content; display: flex;">
-
                                 <div class="data_forms">
-                                    <label for="data-devolucao">Data</label>
-                                    <input type="date" id="data-devolucao" name="data-devolucao" required />
+                                    <label for="data_dev">Data</label>
+                                    <input class="" id="data_dev" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
                                 </div>
 
                                 <div class="hora_forms">
-                                    <label for="hora-devolucao">Hora</label>
-                                    <input type="time" id="hora-devolucao" name="hora-devolucao" required />
+                                    <label for="hora_dev">Hora</label>
+                                    <select class="hora" id="hora_dev" name="hora_dev">
+                                    </select>
                                 </div>
                             </div>
                         </div>

@@ -24,6 +24,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
 
+
+    <!-- FLATPICKR -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">                <!-- CSS do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>                                              <!-- JS do flatpickr -->
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">   <!-- Tema do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>                  <!-- plugin do flatpickr-->
+
 </head>
 <body>
     <!-- ========================================================== -->
@@ -238,7 +245,7 @@
 
 
         <!-- Exibição de veículos -->
-        <div class="secao4">
+        <!-- <div class="secao4">
 
             <h1 class="titulo" style="margin-top: 0;">Modelos da DriveOn</h1>
             
@@ -365,84 +372,116 @@
 
             </div>
 
-        </div>
+        </div> -->
 
 
         <!-- BARRA -->
-        <div>
-            <h1 class="titulo" style="margin-top: 0;">Faça sua reserva agora</h1>
-
-            <form id="form_busca">
-                    <div class="barra" style="position: relative; bottom: 0;">
-                        <div class="cidade">
-                            <div class="barra-icone">
-                                <img class="icone" src="imagens/diversos/local.png">
-                            </div>
-
-                            <div style="width: 100%; display: flex;">
-                                <div class="cidade_forms" style="border-right: 1px solid #e5e7eb;">
-                                    <label for="cidade-retirada">Local de Retirada</label>
-                                    <input type="text" id="cidade-retirada" placeholder="Insira uma cidade" name="cidade-retirada" required>
-                                </div>
-
-                                <div class="local-diferente" onclick="trocarPorInput()" id="local-diferente">
-                                    <span > + Devolver em um lugar diferente</span>
-                                    
-                                </div>
-
-                                <div class="cidade_forms" id="cidade-devolucao-div" style="display: none;">
-                                    <label for="cidade-retirada">Local de Devolução</label>
-                                    <input type="text" id="cidade-devolucao"  placeholder="Insira uma cidade" name="cidade-devolucao"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="data-hora">
-                            <div style="display: flex; flex-grow: 1;">
-                                <div class="data">
-                                    <div class="barra-icone">
-                                        <img class="icone" src="imagens/diversos/data.png">
-                                    </div>
-
-                                    <div class="data_forms">
-                                        <label for="data-retirada">Data</label>
-                                        <input type="date" id="data-retirada" name="data-retirada" required/>
-                                    </div>
-                                </div>
-
-                                <div class="hora">
-                                    <div class="hora_forms">
-                                        <label for="hora-retirada">Hora</label>
-                                        <input type="time" id="hora-retirada" name="hora-retirada" required/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; flex-grow: 1;">
-                                <div class="data">
-                                    <div class="barra-icone">
-                                        <img class="icone" src="imagens/diversos/data.png">
-                                    </div>
-
-                                    <div class="data_forms">
-                                        <label for="data-devolucao">Data</label>
-                                        <input type="date" id="data-devolucao" name="data-devolucao" required/>
-                                    </div>
-                                </div>
-
-                                <div class="hora">
-                                    <div class="hora_forms">
-                                        <label for="hora-devolucao">Hora</label>
-                                        <input type="time" id="hora-devolucao" name="hora-devolucao" required/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <button id="btn_Buscar">Buscar</button>
+        <form id="form_busca">
+            <div class="barra">
+                <!-- LOCAIS -->
+                <div class="cidade">
+                    <div class="barra-icone">
+                        <img class="icone" src="../imagens/diversos/local.png">
                     </div>
-            </form>
-        </div>
+
+                    <div>
+                        <!-- Titulos -->
+                        <div style="width: fit-content; display: flex;">
+                            <div class="barra-titulo" style="border-right: 1px solid #e5e7eb;">Retirada</div>
+                            <div class="barra-titulo">Devolução</div>
+                        </div>
+
+                        <div style="width: fit-content; display: flex; height: 70px;">
+                            <div class="cidade_forms" style="border-right: 1px solid #e5e7eb;">
+                                <div class="div_estado">
+                                    <label for="uf_ret">Estado</label>
+                                    <select id="uf_ret" name="uf_ret">
+                                    </select>
+                                </div>
+
+                                <div class="div_agencia">
+                                    <label for="ag_ret">Agencia</label>
+                                    <select id="ag_ret" name="ag_ret">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="local-diferente" onclick="exibirSelectDev()" id="local-diferente">
+                                <span> + Devolver em um lugar diferente</span>
+
+                            </div>
+
+                            <div class="cidade_forms" id="cidade-devolucao-div" style="display: none;">
+                                <div class="div_estado">
+                                    <label for="uf_dev">Estado</label>
+                                    <select id="uf_dev" name="uf_dev">
+                                    </select>
+                                </div>
+
+                                <div class="div_agencia">
+                                    <label for="ag_dev">Agencia</label>
+                                    <select id="ag_dev" name="ag_dev">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dia e hora de RETIRADA -->
+                <div class="data-hora">
+                    <div class="barra-icone">
+                        <img class="icone" src="../imagens/diversos/data.png">
+                    </div>
+
+                    <div>
+                        <div>
+                            <div class="barra-titulo" style="width: 100%;">Retirada</div>
+                        </div>
+
+                        <div style="width: fit-content; display: flex;">
+                            <div class="data_forms">
+                                <label for="data_ret">Data</label>
+                                <input class="" id="data_ret" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                            </div>
+
+                            <div class="hora_forms">
+                                <label for="hora_ret">Hora</label>
+                                <select class="hora" id="hora_ret" name="hora_ret">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dia e hora de DEVOLUÇÃO -->
+                <div class="data-hora">
+                    <div class="barra-icone">
+                        <img class="icone" src="../imagens/diversos/data.png">
+                    </div>
+                    <div>
+                        <div>
+                            <div class="barra-titulo" style="width: 100%;">Devolução</div>
+                        </div>
+
+                        <div style="width: fit-content; display: flex;">
+                            <div class="data_forms">
+                                <label for="data_dev">Data</label>
+                                <input class="" id="data_dev" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                            </div>
+
+                            <div class="hora_forms">
+                                <label for="hora_dev">Hora</label>
+                                <select class="hora" id="hora_dev" name="hora_dev">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn_Buscar">Buscar</button>
+            </div>
+        </form>
         
     </div>
 

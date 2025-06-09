@@ -8,8 +8,9 @@ const veiculos = f_dados.carregarVeiculos();
 
 
 /* Lógica para obter um array com os veículos*/
-router.get('/obterVeiculos', (req, res) => {
-    res.json({ veiculos });
+router.get('/obterVeiculos/:agencia_ID', (req, res) => {
+    const agencia_ID = req.params.agencia_ID;
+    res.json({ veiculos: veiculos[agencia_ID] });
 });
 
 
