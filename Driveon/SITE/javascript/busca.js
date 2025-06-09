@@ -4,7 +4,11 @@ let dev_mesmolugar = true;
 
 // Obtendo os selects da barra
 let select_uf_ret = document.getElementById('uf_ret');
+let div_uf_ret = document.getElementById('uf_ret_div');
+
 let select_ag_ret = document.getElementById('ag_ret');
+let div_ag_ret = document.getElementById('ag_ret_div');
+
 let select_data_ret = document.getElementById('data_ret');
 let select_hora_ret = document.getElementById('hora_ret');
 
@@ -49,26 +53,42 @@ fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
     estados = data.estados;
     agencias = data.agencias;
 
-    select_uf_ret.innerHTML = ' <option value="nulo">--</option> ';
+    if (select_uf_ret) {    
+        select_uf_ret.innerHTML = ' <option value="nulo">--</option> ';
 
-    for (const estado in estados) {
-        select_uf_ret.innerHTML += ` <option value="${estado}">${estado}</option> `;
+        for (const estado in estados) {
+            select_uf_ret.innerHTML += ` <option value="${estado}">${estado}</option> `;
+        }
     }
 
 
     // Se houver dados salvos no sessionStorage, preenche
     if (uf_ret) {
-        select_uf_ret.value = uf_ret;
+        if (div_uf_ret) {
+            div_uf_ret.innerHTML = uf_ret;
 
-        for (const agencia of agencias) {
-            if (agencia.Estado == uf_ret) {
-                select_ag_ret.innerHTML += `<option value="${agencia.ID}">${agencia.Nome}</option>`;
+            for (const agencia of agencias) {
+                if (agencia.ID == ag_ret) {
+                    div_uf_ret.innerHTML = uf_ret;
+                    div_ag_ret.innerHTML = agencia.Nome;
+                }
             }
-        }
-        select_ag_ret.value = ag_ret;
 
-        filtrarVeiculos();
-        exibirVeiculoAluguel();
+            exibirVeiculoAluguel();
+        }
+        else
+        {
+            select_uf_ret.value = uf_ret;
+
+            for (const agencia of agencias) {
+                if (agencia.Estado == uf_ret) {
+                    select_ag_ret.innerHTML += `<option value="${agencia.ID}">${agencia.Nome}</option>`;
+                }
+            }
+            select_ag_ret.value = ag_ret;
+
+            filtrarVeiculos();
+        }
     }
 
     if (uf_dev) {
@@ -93,24 +113,25 @@ fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
 
 
 /* Decidindo quais agências são mostradas no select estado de retirada de acordo com o estado escolhido */
-select_uf_ret.addEventListener('change', function () {
-    uf_ret = select_uf_ret.value;
+if (select_uf_ret){
+    select_uf_ret.addEventListener('change', function () {
+        uf_ret = select_uf_ret.value;
 
-    select_ag_ret.innerHTML = '';
+        select_ag_ret.innerHTML = '';
 
-    for (const agencia of agencias) {
-        if (agencia.Estado == select_uf_ret.value)
-        {
-            select_ag_ret.innerHTML += ` <option value="${agencia.ID}">${agencia.Nome}</option> `;
+        for (const agencia of agencias) {
+            if (agencia.Estado == select_uf_ret.value)
+            {
+                select_ag_ret.innerHTML += ` <option value="${agencia.ID}">${agencia.Nome}</option> `;
+            }
         }
-    }
 
-    select_ag_ret.selectedIndex = 0;
-    ag_ret = select_ag_ret.value;
-    salvarSS();
-    filtrarVeiculos();
-});
-
+        select_ag_ret.selectedIndex = 0;
+        ag_ret = select_ag_ret.value;
+        salvarSS();
+        filtrarVeiculos();
+    });
+}
 
 /* Troca a div com "Devolver em local diferente" por um input */
 function exibirSelectDev() {
@@ -127,25 +148,25 @@ function exibirSelectDev() {
     }
 }
 
-
 /* Decidindo quais agências são mostradas no select estado de devolução de acordo com o estado escolhido */
-select_uf_dev.addEventListener('change', function () {
-    uf_dev = select_uf_dev.value;
+if (select_uf_dev) {
+    select_uf_dev.addEventListener('change', function () {
+        uf_dev = select_uf_dev.value;
 
-    select_ag_dev.innerHTML = '';
+        select_ag_dev.innerHTML = '';
 
-    for (const agencia of agencias) {
-        if (agencia.Estado == select_uf_dev.value)
-        {
-            select_ag_dev.innerHTML += ` <option value="${agencia.ID}">${agencia.Nome}</option> `;
+        for (const agencia of agencias) {
+            if (agencia.Estado == select_uf_dev.value)
+            {
+                select_ag_dev.innerHTML += ` <option value="${agencia.ID}">${agencia.Nome}</option> `;
+            }
         }
-    }
 
-    select_ag_dev.selectedIndex = 0;
-    ag_dev = select_ag_dev.value;
-    salvarSS();
-});
-
+        select_ag_dev.selectedIndex = 0;
+        ag_dev = select_ag_dev.value;
+        salvarSS();
+    });
+}
 
 // ==================================================
 
@@ -329,26 +350,34 @@ function filtrarVeiculos() {
 
 
 // ATUALIZANDO OS DADOS CASO O USUÁRIO OS MUDE
-select_ag_ret.addEventListener('change', function () {
-    ag_ret = select_ag_ret.value;
-    salvarSS();
-    filtrarVeiculos();
-});
+if (select_ag_ret) {
+    select_ag_ret.addEventListener('change', function () {
+        ag_ret = select_ag_ret.value;
+        salvarSS();
+        filtrarVeiculos();
+    });
+}
 
-select_ag_dev.addEventListener('change', function () {
-    ag_dev = select_ag_dev.value;
-    salvarSS();
-});
+if (select_ag_dev) {    
+    select_ag_dev.addEventListener('change', function () {
+        ag_dev = select_ag_dev.value;
+        salvarSS();
+    });
+}
 
-select_hora_ret.addEventListener('change', function () {
-    hora_ret = select_hora_ret.value;
-    salvarSS();
-});
+if (select_hora_ret) {
+    select_hora_ret.addEventListener('change', function () {
+        hora_ret = select_hora_ret.value;
+        salvarSS();
+    });
+}
 
-select_hora_dev.addEventListener('change', function () {
-    hora_dev = select_hora_dev.value;
-    salvarSS();
-});
+if (select_hora_dev) {
+    select_hora_dev.addEventListener('change', function () {
+        hora_dev = select_hora_dev.value;
+        salvarSS();
+    });
+}
 
 
 // =================================================
@@ -371,8 +400,8 @@ function exibirVeiculoAluguel() {
         const veiculo = data.veiculo;
 
         infos_carro.innerHTML = `
-            <div class="card_carro" id="${veiculo.agencia_ID} ${veiculo.ID}">
-                <div class="imagemcarro">
+            <div class="div_carro" id="${veiculo.agencia_ID} ${veiculo.ID}">
+                <div class="imagem_carro">
                     <img src="${veiculo.imagem}">
                 </div>
 
