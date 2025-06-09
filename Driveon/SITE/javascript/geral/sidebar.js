@@ -70,11 +70,11 @@ trilho.addEventListener('click', () => {
 
         document.getElementById('imagem_logo').src = "../imagens/logo/logo-txtpreto.png"
 
-
         const links = document.getElementsByClassName('footer_link');
         for (const link of links) {
-            link.style.color = 'black'
+        link.style.color = 'black'
         }
+      
     }
 
 })

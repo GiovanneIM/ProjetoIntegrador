@@ -38,8 +38,8 @@ const marca = 'Chevrolet'
 // Vetor com os modelos dos carros → de 1 a 9
 const modelo = [
     'Chevrolet Blazer EV RS',
-    'Chevrolet Equinox',
     'Chevrolet Camaro',
+    'Chevrolet Equinox',
     'Chevrolet Montana',
     'Chevrolet Onix Plus',
     'Chevrolet Silverado',

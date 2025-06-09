@@ -27,7 +27,8 @@
 .card_carro:hover{
     /* background: linear-gradient(to top,rgb(49, 49, 49),rgb(188, 197, 209),rgb(221, 225, 228)); */
     transform: translateY(-10px);
-    transition: transform .5s ease;
+    transition: transform .7s ease;
+    background:linear-gradient(rgb(0, 56, 129),rgb(248, 251, 255),rgb(220, 223, 228))
 }
 
 .card_carro h1{
