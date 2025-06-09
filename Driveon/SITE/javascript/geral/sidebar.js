@@ -42,6 +42,7 @@ trilho.addEventListener('click', () => {
         document.getElementById('paragrafo-footer');
 
 
+
         const links = document.getElementsByClassName('footer_link');
         for (const link of links) {
             link.style.color = 'white'
@@ -51,7 +52,7 @@ trilho.addEventListener('click', () => {
                 titulo.style.color = "#FFFF"
             }
 
-            let paragrafos =document.getElementsByClassName('paragrafo-footer')
+            let paragrafos = document.getElementsByClassName('paragrafo-footer')
             for(const paragrafo of paragrafos){
                 paragrafo.style.color = "white"
             }
@@ -69,6 +70,7 @@ trilho.addEventListener('click', () => {
         document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtpreto.png"
 
         document.getElementById('imagem_logo').src = "../imagens/logo/logo-txtpreto.png"
+
 
         const links = document.getElementsByClassName('footer_link');
         for (const link of links) {

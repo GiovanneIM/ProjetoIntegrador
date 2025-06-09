@@ -212,15 +212,6 @@
 /* terminou imagem 3  */
 
 
-
-
-
-
-
-
-
-
-
 /* incio da imagem 4  */
 
 .container-4 {
@@ -490,15 +481,6 @@
    
 }
 
-.footer_link{
-    text-decoration: none;
-    color: black;
-}
-
-.footer_link :hover{
-    text-decoration: underline;
-}
-
 
 /* ============================================ */
 
@@ -511,9 +493,9 @@
     border-radius: 150px;
     position: relative;
     cursor: pointer;
- }
+}
  
- .trilho .indicador{
+.trilho .indicador{
     width:50px ;
     height: 50px ;
     background-color: rgb(255, 255, 255);
@@ -522,26 +504,25 @@
     position: absolute;
     left: 0;
     transition: .5s;
- }
+}
  
- .trilho.dark{
+.trilho.dark{
     background-color:#0e1f48 ;
- }
+}
  
- .trilho.dark .indicador{
+.trilho.dark .indicador{
     left: 50px;
     background-color: #2e59be;
- }
+}
  
  
  body.dark{
     background-color:rgb(28, 28, 28);
     text-decoration: #c1c4c7;
- }
+}
 
 
-
- .footer_link{
+.footer_link{
     text-decoration: none;
     color: black;
 }

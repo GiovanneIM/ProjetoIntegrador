@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,31 @@
     <link rel="icon" href="imagens/logo/logo-semtexto.png" type="image/x-icon">
 
     <!-- Links específicos-->
-    <link href="css/index.css" rel="stylesheet"/>
+    <link href="css/index.css" rel="stylesheet" />
 
 
     <!-- Links Gerais -->
-    <link href="css/geral/header-footer.css" rel="stylesheet"/>
-    <link href="css/geral/banner.css" rel="stylesheet"/>
-    <link href="css/geral/barrareserva.css" rel="stylesheet"/>
-    
+    <link href="css/geral/header-footer.css" rel="stylesheet" />
+    <link href="css/geral/banner.css" rel="stylesheet" />
+    <link href="css/geral/barrareserva.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/>     <!-- Fonte header -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <!-- Sweetalert -->
 
-    
+    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css" />
+    <!-- Fonte header -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Sweetalert -->
+
+
 
     <!-- FLATPICKR -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">                <!-- CSS do flatpickr -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>                                              <!-- JS do flatpickr -->
-    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">   <!-- Tema do flatpickr -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>                  <!-- plugin do flatpickr-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- CSS do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!-- JS do flatpickr -->
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+    <!-- Tema do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
+    <!-- plugin do flatpickr-->
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
@@ -37,7 +43,9 @@
                 <div>
                     <div style="display: flex;">
                         <div><img class="header-icone" src="imagens/logo//logo-semtexto.png"></div>
-                        <div class="header-texto"><span style="line-height: 1;"><span style="font-size: 33px;"><b>DriveOn</b></span><br><span style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
+                        <div class="header-texto"><span style="line-height: 1;"><span
+                                    style="font-size: 33px;"><b>DriveOn</b></span><br><span
+                                    style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
                     </div>
                 </div>
             </a>
@@ -55,9 +63,10 @@
                         <img class="header-icone" src="imagens/setas/seta.png">
                         <img class="header-fotousuario foto_user" src="">
                     </div>
-                    
+
                     <div class="header-texto">
-                        <span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b class="nome_user"></b></span>
+                        <span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b
+                                class="nome_user"></b></span>
                     </div>
                 </div>
             </a>
@@ -69,8 +78,8 @@
     <div class="barraFixada" id="barraFixada">
         <button class="barraFixada-open-btn" id="openBtn" onclick="openSidebar()">☰</button>
     </div>
-      
-      
+
+
     <!-- BARRA LATERAL -->
     <div class="sidebar" id="sidebar">
         <!-- LOGIN  ou USUÁRIO-->
@@ -90,11 +99,14 @@
                                 <img class="header-icone" src="imagens/setas/seta.png">
                                 <img class="header-fotousuario foto_user" src="">
                             </div>
-                            <div class="header-texto"><span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;"><b class="nome_user"></b></span></div>
+                            <div class="header-texto"><span
+                                    style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;"><b
+                                        class="nome_user"></b></span></div>
                         </div>
                     </a>
+
                 </div>
-                
+
                 <div class="close-btn" id="closeBtn" onclick="closeSidebar()">☰</div>
             </div>
 
@@ -106,13 +118,29 @@
             <a href="index.html" class="logado logout">Sair</a>
         </div>
 
-        <!-- LOGO -->
-        <a href="index.html" style="margin-bottom: 15px;">
-            <div style="display: flex;">
-                <div><img class="header-icone" src="imagens/logo//logo-semtexto.png"></div>
-                <div class="header-texto"><span style="line-height: 1;"><span style="font-size: 33px;"><b>DriveOn</b></span><br><span style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
+        <div class="">
+            <!-- Tema escuro e claro -->
+            <div style="display: flex; justify-content: center; align-items: center; ">
+
+                <div class="trilho" id="trilho">
+                    <div class="indicador" style="display: flex; justify-content: center; align-items: center;">
+                        <img id="iconeTema" src="./imagens/diversos/sol.png" width="30px">
+                    </div>
+                </div>
             </div>
-        </a>
+
+
+            <!-- LOGO -->
+            <a href="index.html" style="margin-bottom: 15px;">
+                <div style="display: flex;">
+                    <div><img class="header-icone" src="imagens/logo//logo-semtexto.png"></div>
+                    <div class="header-texto"><span style="line-height: 1;"><span
+                                style="font-size: 33px;"><b>DriveOn</b></span><br><span
+                                style="font-size: 11.7px;">Trilhando
+                                seu caminho!</span></span></div>
+                </div>
+            </a>
+        </div>
     </div>
     <!-- DIV ESCURA E TRANSPARENTE PARA ESCURECER A PÁGINA-->
     <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
@@ -123,7 +151,7 @@
 
     <!-- BANNER -->
     <div class="banner">
-        <img class="banner-img" src="imagens/banner.png" alt="Banner Aluguel de carros"/>
+        <img class="banner-img" src="imagens/banner.png" alt="Banner Aluguel de carros" />
 
         <div class="banner-conteudo">
             <div class="banner-texto">
@@ -201,7 +229,8 @@
                             <div style="width: fit-content; display: flex;">
                                 <div class="data_forms">
                                     <label for="data_ret">Data</label>
-                                    <input class="" id="data_ret" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                                    <input class="" id="data_ret" type="text" placeholder="Select Date..."
+                                        data-id="rangePlugin" readonly="readonly">
                                 </div>
 
                                 <div class="hora_forms">
@@ -226,7 +255,8 @@
                             <div style="width: fit-content; display: flex;">
                                 <div class="data_forms">
                                     <label for="data_dev">Data</label>
-                                    <input class="" id="data_dev" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                                    <input class="" id="data_dev" type="text" placeholder="Select Date..."
+                                        data-id="rangePlugin" readonly="readonly">
                                 </div>
 
                                 <div class="hora_forms">
@@ -246,8 +276,8 @@
 
 
     <!-- ========================================================== -->
-    
-    
+
+
     <!-- CORPO -->
     <div class="corpo">
         <h1 class="titulo">Selecione uma de nossas agências</h1>
@@ -268,14 +298,18 @@
             <div style="display: flex; flex-direction: column;">
                 <p><b>Conheça nossa empresa</b></p>
                 <ul style="list-style-type: none; padding-left: 0;">
-                    <a href="paginas/sobre_nos_teste.html" class="footer_link"><li>Sobre nós</li></a>
+                    <a href="paginas/sobre_nos_teste.html" class="footer_link">
+                        <li>Sobre nós</li>
+                    </a>
                 </ul>
             </div>
 
             <div style="display: flex; flex-direction: column;">
                 <p><b>Informações para usuários</b></p>
                 <ul style="list-style-type: none; padding-left: 0;">
-                    <a href="paginas/cadastro.html" class="footer_link"><li>Como alugar um carro?</li></a>
+                    <a href="paginas/cadastro.html" class="footer_link">
+                        <li>Como alugar um carro?</li>
+                    </a>
                 </ul>
             </div>
 
@@ -284,14 +318,16 @@
             </div>
         </div>
         <div class="footer_div">
-            <div><a href="index.html"><img  class="logo_DriveOn" src="imagens/logo/logo-txtpreto.png"></a></div>
-            <div><p>© 2025 DriveOn. Todos os direitos reservados.</p></div>
+            <div><a href="index.html"><img class="logo_DriveOn" src="imagens/logo/logo-txtpreto.png"></a></div>
+            <div>
+                <p>© 2025 DriveOn. Todos os direitos reservados.</p>
+            </div>
             <div style="flex-direction: column; gap: 5px;">
                 <p>Siga-nos em nossas redes sociais:</p>
                 <div class="redessociais">
                     <img class="logo" src="imagens/redessociais/facebook.png">
                     <a href="https://www.instagram.com/locadora_driveon/?next=%2F">
-                    <img class="logo" src="imagens/redessociais/instagram.png">
+                        <img class="logo" src="imagens/redessociais/instagram.png">
                     </a>
                     <img class="logo" src="imagens/redessociais/linkedin.png">
                     <img class="logo" src="imagens/redessociais/x.png">
@@ -303,7 +339,7 @@
 
     <!-- ========================================================== -->
 
-    
+
     <!-- SCRIPTS específicos -->
     <script src="javascript/consultaAPI/exibirAgencias.js"></script>
 
@@ -311,6 +347,7 @@
     <script src="javascript/geral/variavelUsuario.js"></script>
     <script src="javascript/geral/sidebar.js"></script>
     <script src="javascript/geral/barrareserva.js"></script>
-    
+
 </body>
+
 </html>
