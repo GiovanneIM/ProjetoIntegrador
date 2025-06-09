@@ -131,12 +131,15 @@
 
     <!-- CORPO -->
     <div class="corpo">
-        <h1 class="titulo">Finalize o aluguel de carro</h1>
+        <h1 class="titulo">Alugue de seu carro</h1>
 
-        <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="div_geral">
+            <div id="infos_carro">
+            </div>
+
             <div>
                 <!-- BARRA -->
-                <div class="barra">
+                <div class="barra barra_semfundo">
                     <!-- LOCAIS -->
                     <div class="cidade">
                         <div class="barra-icone">
@@ -154,14 +157,12 @@
                                 <div class="cidade_forms" style="border-right: 1px solid #e5e7eb;">
                                     <div class="div_estado">
                                         <label for="uf_ret">Estado</label>
-                                        <select id="uf_ret" name="uf_ret">
-                                        </select>
+                                        <div id="uf_ret_div"></div>
                                     </div>
 
                                     <div class="div_agencia">
                                         <label for="ag_ret">Agencia</label>
-                                        <select id="ag_ret" name="ag_ret">
-                                        </select>
+                                        <div id="ag_ret_div"></div>
                                     </div>
                                 </div>
 
@@ -187,52 +188,54 @@
                         </div>
                     </div>
 
-                    <!-- Dia e hora de RETIRADA -->
-                    <div class="data-hora">
-                        <div class="barra-icone">
-                            <img class="icone" src="../imagens/diversos/data.png">
-                        </div>
+                    <div class="datas_container">
+                        <!-- Dia e hora de RETIRADA -->
+                        <div class="data-hora">
+                            <div class="barra-icone">
+                                <img class="icone" src="../imagens/diversos/data.png">
+                            </div>
 
-                        <div>
                             <div>
-                                <div class="barra-titulo" style="width: 100%;">Retirada</div>
-                            </div>
-
-                            <div style="width: fit-content; display: flex;">
-                                <div class="data_forms">
-                                    <label for="data_ret">Data</label>
-                                    <input class="" id="data_ret" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                                <div>
+                                    <div class="barra-titulo" style="width: 100%;">Retirada</div>
                                 </div>
 
-                                <div class="hora_forms">
-                                    <label for="hora_ret">Hora</label>
-                                    <select class="hora" id="hora_ret" name="hora_ret">
-                                    </select>
+                                <div style="width: fit-content; display: flex;">
+                                    <div class="data_forms">
+                                        <label for="data_ret">Data</label>
+                                        <input class="" id="data_ret" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                                    </div>
+
+                                    <div class="hora_forms">
+                                        <label for="hora_ret">Hora</label>
+                                        <select class="hora" id="hora_ret" name="hora_ret">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Dia e hora de DEVOLUÇÃO -->
-                    <div class="data-hora">
-                        <div class="barra-icone">
-                            <img class="icone" src="../imagens/diversos/data.png">
-                        </div>
-                        <div>
+                        <!-- Dia e hora de DEVOLUÇÃO -->
+                        <div class="data-hora">
+                            <div class="barra-icone">
+                                <img class="icone" src="../imagens/diversos/data.png">
+                            </div>
                             <div>
-                                <div class="barra-titulo" style="width: 100%;">Devolução</div>
-                            </div>
-
-                            <div style="width: fit-content; display: flex;">
-                                <div class="data_forms">
-                                    <label for="data_dev">Data</label>
-                                    <input class="" id="data_dev" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                                <div>
+                                    <div class="barra-titulo" style="width: 100%;">Devolução</div>
                                 </div>
 
-                                <div class="hora_forms">
-                                    <label for="hora_dev">Hora</label>
-                                    <select class="hora" id="hora_dev" name="hora_dev">
-                                    </select>
+                                <div style="width: fit-content; display: flex;">
+                                    <div class="data_forms">
+                                        <label for="data_dev">Data</label>
+                                        <input class="" id="data_dev" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                                    </div>
+
+                                    <div class="hora_forms">
+                                        <label for="hora_dev">Hora</label>
+                                        <select class="hora" id="hora_dev" name="hora_dev">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -240,9 +243,6 @@
 
                     <!-- <button id="btn_Buscar">Buscar</button> -->
                 </div>
-            </div>
-
-            <div id="infos_carro">
             </div>
         </div>
 
