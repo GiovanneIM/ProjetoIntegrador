@@ -25,6 +25,11 @@ let data_dev = sessionStorage.getItem('data_dev');
 let hora_dev = sessionStorage.getItem('hora_dev');
 
 
+
+// Obtendo o ID do carro que o usuário escolheu
+let id_veiculo = sessionStorage.getItem('id_veiculo');
+
+
 // ==================================================
 
 
@@ -63,6 +68,7 @@ fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
         select_ag_ret.value = ag_ret;
 
         filtrarVeiculos();
+        exibirVeiculoAluguel();
     }
 
     if (uf_dev) {
@@ -168,7 +174,7 @@ const pickerRetirada = flatpickr(data_retirada, {
         atualizarMinDataDev(selectedDates[0]);
     }
 });
-console.log(amanha);
+
 // Seletor data devolução
 const pickerDevolucao = flatpickr(data_devolucao, {
     minDate: new Date(amanha.getTime() + 24 * 60 * 60 * 1000),
@@ -248,6 +254,8 @@ function carregarSS() {
     ag_dev = sessionStorage.getItem('ag_dev');
     data_dev = sessionStorage.getItem('data_dev');
     hora_dev = sessionStorage.getItem('hora_dev');
+
+    id_veiculo = sessionStorage.getItem('id_veiculo');
 }
 
 function salvarSS() {
@@ -260,12 +268,16 @@ function salvarSS() {
     sessionStorage.setItem('ag_dev', ag_dev);
     sessionStorage.setItem('data_dev', data_dev);
     sessionStorage.setItem('hora_dev', hora_dev);
+
+    sessionStorage.setItem('id_veiculo', id_veiculo);
 }
 
 
 // Filtra os veículos que estão na agência de retirada selecionada
 function filtrarVeiculos() {
     const container = document.getElementById('container');
+    if (!container) { return }
+
     container.innerHTML = ''
 
     fetch(`http://127.0.0.1:3000/veiculos/obterVeiculos/${ag_ret}`, {
@@ -281,6 +293,7 @@ function filtrarVeiculos() {
     .then(data => {
         const veiculos = data.veiculos;
 
+        // ADICIONANDO OS CARROS AO CONTAINER
         for (const veiculo of veiculos) {
             container.innerHTML += `
             <div class="card_carro" id="${veiculo.agencia_ID} ${veiculo.ID}">
@@ -292,10 +305,23 @@ function filtrarVeiculos() {
                     <h1>${veiculo.modelo} ${veiculo.anoFabricacao}</h1>
                     <h2>Easy Entry <br>Motor Turbo</h2>
                     <p><strong>R$ ${veiculo.preco} / dia</strong></p>
-                    <button>Alugar</button>
+                    <button class="btn_carro" data-agencia="${veiculo.agencia_ID}" data-veiculo="${veiculo.ID}">Alugar</button>
                 </div>
             </div>
             `;
+        }
+
+
+        // USUÁRIO SELECIONA CARRO
+        const buttons_carros = document.getElementsByClassName('btn_carro');
+        for (const button of buttons_carros) {
+            button.addEventListener('click', function () {
+                id_veiculo = button.dataset.veiculo;
+                salvarSS();
+
+                // Redirecionando para a página de aluguel
+                window.location.href = 'http://127.0.0.1:3000/paginas/aluguel.html';
+            })
         }
     })
 
@@ -314,16 +340,6 @@ select_ag_dev.addEventListener('change', function () {
     salvarSS();
 });
 
-// select_data_ret.addEventListener('change', function () {
-//     data_ret = select_data_ret.value;
-//     salvarSS();
-// });
-
-// select_data_dev.addEventListener('change', function () {
-//     data_dev = select_data_dev.value;
-//     salvarSS();
-// });
-
 select_hora_ret.addEventListener('change', function () {
     hora_ret = select_hora_ret.value;
     salvarSS();
@@ -333,3 +349,40 @@ select_hora_dev.addEventListener('change', function () {
     hora_dev = select_hora_dev.value;
     salvarSS();
 });
+
+
+// =================================================
+
+
+function exibirVeiculoAluguel() {
+    const infos_carro = document.getElementById('infos_carro');
+
+    fetch(`http://127.0.0.1:3000/veiculos/obterVeiculos/${ag_ret}/${id_veiculo}`, {
+        method: 'GET',
+        credentials: 'include'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar os dados');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const veiculo = data.veiculo;
+
+        infos_carro.innerHTML = `
+            <div class="card_carro" id="${veiculo.agencia_ID} ${veiculo.ID}">
+                <div class="imagemcarro">
+                    <img src="${veiculo.imagem}">
+                </div>
+
+                <div class="desc_carro">
+                    <h1>${veiculo.modelo} ${veiculo.anoFabricacao}</h1>
+                    <h2>Easy Entry <br>Motor Turbo</h2>
+                    <p><strong>R$ ${veiculo.preco} / dia</strong></p>
+                </div>
+            </div>
+        `
+    })
+
+}
