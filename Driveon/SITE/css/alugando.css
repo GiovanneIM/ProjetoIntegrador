@@ -106,3 +106,23 @@
     background-color: darkgoldenrod;
     background-color: darkred; */
 }
+
+
+.descricao_carro{
+    padding: 0 20px;
+    line-height: 25px;
+}
+
+.descricao_carro h3{
+    font-size: 30px;
+}
+
+.descricao_carro ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.descricao_carro li{
+    font-size: 18px;
+}

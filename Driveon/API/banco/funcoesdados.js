@@ -3,6 +3,7 @@ const fs = require('fs');
 const caminhoUsers = './banco/usuarios.json';
 const caminhoAgencias = './banco/agencias.json';
 const caminhoVeiculos = './banco/veiculos.json';
+const caminhoDescricoes = './banco/descricao.json';
 const caminhoReservas = './banco/reservas.json';
 
 
@@ -33,6 +34,12 @@ function carregarVeiculos() {
 // Salva os veiculos e suas informações
 function salvarVeiculos(veiculos) {
     fs.writeFileSync(caminhoVeiculos, JSON.stringify(veiculos, null, 4));
+}
+
+// Retorna um as descrições dos modelos de veiculos
+function carregarDescricoes() {
+    const descricoes = fs.readFileSync(caminhoDescricoes, 'utf-8');
+    return JSON.parse(descricoes);
 }
 
 
@@ -77,6 +84,7 @@ module.exports = {
     salvarAgencias,
     carregarVeiculos,
     salvarVeiculos,
+    carregarDescricoes,
     carregarReservas,
     salvarReservas
 };

@@ -29,7 +29,7 @@ router.get('/obterVeiculos/:agencia_ID/:veiculo_ID', (req, res) => {
 });
 
 
-/* Lógica para registrar um novo veículo*/
+/* Lógica para registrar um novo veículo */
 router.post('/registrarVeiculos', (req, res) => {
     const novosVeiculos = req.body;
 
@@ -51,7 +51,15 @@ router.post('/registrarVeiculos', (req, res) => {
     res.json({ mensagem: 'Veículos registrados com sucesso.' });
 });
 
+/* Lógica para obter a descrição de um modelo */
+router.post('/descricao', (req, res) => {
+    const descricoes = f_dados.carregarDescricoes();
+    const modelo = req.body.modelo
 
+    let descricao = descricoes[modelo]
+
+    res.json({ descricao });
+});
 
 
 module.exports = router;

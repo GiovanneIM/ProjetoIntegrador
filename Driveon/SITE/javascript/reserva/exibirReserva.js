@@ -157,7 +157,12 @@ function exibirReservaEspecifica() {
                             <p><strong>R$ ${veiculo.preco} / dia</strong></p>
                         </div>
                     </div>
+                    
+                    <div class="descricao_carro" id="descricao_carro"></div>
                 `;
+
+                obterDescricao(veiculo.modelo);
+
 
                 status_reserva_barra.textContent  += reserva.status;
 
@@ -234,4 +239,33 @@ function statusCor(status) {
         default:
             return 'gray';
     }
+}
+
+
+
+function obterDescricao(modelo) {
+    fetch('http://127.0.0.1:3000/veiculos/descricao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "modelo": modelo })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar a descrição');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.descricao) {
+            document.getElementById('descricao_carro').innerHTML = data.descricao;
+        } else {
+            document.getElementById('descricao_carro').innerHTML = '<p>Descrição não encontrada.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        document.getElementById('descricao_carro').innerHTML = '<p>Erro ao carregar descrição.</p>';
+    });
 }

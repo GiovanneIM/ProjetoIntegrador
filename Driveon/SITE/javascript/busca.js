@@ -415,7 +415,11 @@ function exibirVeiculoAluguel() {
                     <p><strong>R$ ${veiculo.preco} / dia</strong></p>
                 </div>
             </div>
-        `
+
+            <div class="descricao_carro" id="descricao_carro"></div>
+        `;
+
+        obterDescricao(veiculo.modelo);
     })
 
 }
@@ -473,5 +477,40 @@ document.getElementById('btn_Reservar').addEventListener('click', function () {
     })
     .catch(error => {
         console.error('Erro na requisição:', error);
+        Swal.fire({
+            confirmButtonColor: '#0e5a91',
+            html: `<b>${'É necessário fazer login para continuar'}<b>`,
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        })
     });
 })
+
+
+
+function obterDescricao(modelo) {
+    fetch('http://127.0.0.1:3000/veiculos/descricao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "modelo": modelo })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar a descrição');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.descricao) {
+            document.getElementById('descricao_carro').innerHTML = data.descricao;
+        } else {
+            document.getElementById('descricao_carro').innerHTML = '<p>Descrição não encontrada.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        document.getElementById('descricao_carro').innerHTML = '<p>Erro ao carregar descrição.</p>';
+    });
+}

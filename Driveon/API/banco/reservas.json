@@ -90,5 +90,81 @@
             "id_reserva": 4,
             "status": "Agendada"
         }
+    ],
+    "2": [
+        {
+            "retirada": {
+                "data": "25/06/2025",
+                "hora": "null",
+                "uf": "AP",
+                "ag": "5"
+            },
+            "devolucao": {
+                "data": "26/06/2025",
+                "hora": "null",
+                "uf": "PR",
+                "ag": "31"
+            },
+            "id_veiculo": "68",
+            "id_usuario": 2,
+            "id_reserva": 0,
+            "status": "Agendada"
+        }
+    ],
+    "3": [
+        {
+            "retirada": {
+                "data": "19/06/2025",
+                "hora": "null",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "devolucao": {
+                "data": "20/06/2025",
+                "hora": "null",
+                "uf": "PA",
+                "ag": "27"
+            },
+            "id_veiculo": "2",
+            "id_usuario": 3,
+            "id_reserva": 0,
+            "status": "Cancelada"
+        },
+        {
+            "retirada": {
+                "data": "12/06/2025",
+                "hora": "08:00",
+                "uf": "AL",
+                "ag": "3"
+            },
+            "devolucao": {
+                "data": "20/06/2025",
+                "hora": "08:00",
+                "uf": "PE",
+                "ag": "33"
+            },
+            "id_veiculo": "40",
+            "id_usuario": 3,
+            "id_reserva": 1,
+            "status": "Cancelada"
+        },
+        {
+            "retirada": {
+                "data": "12/06/2025",
+                "hora": "08:00",
+                "uf": "CE",
+                "ag": "11"
+            },
+            "devolucao": {
+                "data": "13/06/2025",
+                "hora": "08:00",
+                "uf": "ES",
+                "ag": "15"
+            },
+            "id_veiculo": "172",
+            "id_usuario": 3,
+            "id_reserva": 2,
+            "status": "Cancelada"
+        }
     ]
 }

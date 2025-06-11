@@ -17,10 +17,12 @@ window.addEventListener('scroll', function () {
     }
 });
 
-
+// Define o caminho base dependendo da URL
+let caminhoBase = '';
+if ( window.location.pathname.includes('/paginas') ) { caminhoBase += '../'; }
+if ( window.location.pathname.includes('/pages-User') ) { caminhoBase += '../'; }
 
 // Altera o tema
-
 let trilho = document.getElementById('trilho');
 let body = document.querySelector('body');
 
@@ -41,7 +43,7 @@ trilho.addEventListener('click', () => {
         body.style.backgroundColor = 'rgb(28,28,28)';
 
         // Alterando icone do seletor de tema
-        document.getElementById('iconeTema').src = "../imagens/diversos/lua.png";
+        document.getElementById('iconeTema').src = caminhoBase + "imagens/diversos/lua.png";
 
         // Alterando as imagens da logo com texto
         alterarLogoTXT();
@@ -75,7 +77,7 @@ trilho.addEventListener('click', () => {
         body.style.backgroundColor = '#fafbfc';
 
         // Alterando icone do seletor de tema
-        document.getElementById('iconeTema').src = "../imagens/diversos/sol.png"
+        document.getElementById('iconeTema').src = caminhoBase + "imagens/diversos/sol.png"
 
         // Alterando as imagens da logo com texto
         alterarLogoTXT();
@@ -109,20 +111,34 @@ trilho.addEventListener('click', () => {
 })
 
 
+
+
+
 function alterarLogoTXT() {
-    let imagem;
+    let imagem = '';
 
+    // Define a imagem com base no tema
     if (claro) {
-        imagem = "../imagens/logo/logo-txtpreto.png";
-    }
-    else {
-        imagem = "../imagens/logo/logo-txtbranco.png"
+        imagem = caminhoBase + "imagens/logo/logo-txtpreto.png";
+    } else {
+        imagem = caminhoBase + "imagens/logo/logo-txtbranco.png";
     }
 
+    // Aplica a imagem em todos os elementos logo_txt
     for (const logo of logos_txt) {
-        logo.src = imagem
+        logo.src = imagem;
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 function alterarPagina() {
