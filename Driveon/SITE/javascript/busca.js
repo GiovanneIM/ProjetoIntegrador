@@ -316,20 +316,24 @@ function filtrarVeiculos() {
 
         // ADICIONANDO OS CARROS AO CONTAINER
         for (const veiculo of veiculos) {
-            container.innerHTML += `
-            <div class="card_carro" id="${veiculo.agencia_ID} ${veiculo.ID}">
-                <div class="imagemcarro">
-                    <img src="${veiculo.imagem}">
-                </div>
+            
+            if (!veiculo['disponivel']) continue;
 
-                <div class="desc_carro">
-                    <h1>${veiculo.modelo} ${veiculo.anoFabricacao}</h1>
-                    <h2>Easy Entry <br>Motor Turbo</h2>
-                    <p><strong>R$ ${veiculo.preco} / dia</strong></p>
-                    <button class="btn_carro" data-agencia="${veiculo.agencia_ID}" data-veiculo="${veiculo.ID}">Alugar</button>
+            container.innerHTML += `
+                <div class="card_carro" id="${veiculo.agencia_ID} ${veiculo.ID}">
+                    <div class="imagemcarro">
+                        <img src="${veiculo.imagem}">
+                    </div>
+
+                    <div class="desc_carro">
+                        <h1>${veiculo.modelo} ${veiculo.anoFabricacao}</h1>
+                        <!--<h2>Easy Entry <br>Motor Turbo</h2>-->
+                        <p><strong>R$ ${veiculo.preco} / dia</strong></p>
+                        <button class="btn_carro" data-agencia="${veiculo.agencia_ID}" data-veiculo="${veiculo.ID}">Alugar</button>
+                    </div>
                 </div>
-            </div>
             `;
+            
         }
 
 
@@ -415,3 +419,59 @@ function exibirVeiculoAluguel() {
     })
 
 }
+
+// ==================================================
+
+document.getElementById('btn_Voltar').addEventListener('click', function () {
+    window.location.href = 'http://127.0.0.1:3000/paginas/busca.html';
+})
+
+document.getElementById('btn_Reservar').addEventListener('click', function () {
+    fetch(`http://127.0.0.1:3000/criarReserva`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "retirada": {
+                "data": data_ret,
+                "hora": hora_ret,
+                "uf": uf_ret,
+                "ag": ag_ret.toString()
+            },
+            "devolucao": {
+                "data": data_dev,
+                "hora": hora_dev,
+                "uf": uf_dev? uf_dev: uf_ret,
+                "ag": ag_dev? ag_dev: ag_ret
+            },
+            "id_veiculo": id_veiculo
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar os dados');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Reserva criada com sucesso:', data);
+        sessionStorage.setItem('id_reserva_session', data.id_reserva);
+        
+        Swal.fire({
+                confirmButtonColor: '#0e5a91',
+                html: `<b>${'Reserva criada com sucesso:'}<b>`,
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        .then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'http://127.0.0.1:3000/paginas/reserva.html';
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+    });
+})

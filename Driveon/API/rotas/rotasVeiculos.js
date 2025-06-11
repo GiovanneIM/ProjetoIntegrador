@@ -4,16 +4,20 @@ const express = require('express');
 const router = express.Router();
 
 const f_dados = require('../banco/funcoesdados');
-const veiculos = f_dados.carregarVeiculos();
+let veiculos = f_dados.carregarVeiculos();
 
 
-/* Lógica para obter um array com os veículos*/
+/* Lógica para obter um array com os veículos de uma agência*/
 router.get('/obterVeiculos/:agencia_ID', (req, res) => {
+    veiculos = f_dados.carregarVeiculos();
+
     const agencia_ID = req.params.agencia_ID;
     res.json({ veiculos: veiculos[agencia_ID] });
 });
 
+/* Lógica para obter um veículo em específico */
 router.get('/obterVeiculos/:agencia_ID/:veiculo_ID', (req, res) => {
+    veiculos = f_dados.carregarVeiculos();
     const agencia_ID = req.params.agencia_ID;
     const veiculo_ID = req.params.veiculo_ID;
 

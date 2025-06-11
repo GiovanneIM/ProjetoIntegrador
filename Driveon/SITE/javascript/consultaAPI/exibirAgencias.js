@@ -32,7 +32,7 @@ fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
             agencia_estado.innerHTML += `
             <div>
                 <div class="agencia_linha">
-                    <div class="agencia-nome" id="${agencia.ID}">${agencia.Nome}</div>
+                    <div class="agencia-nome" id="${agencia.ID}" data-estado="${estado}">${agencia.Nome}</div>
                     <div class="agencia-CEP">${agencia.CEP}</div>
                 </div>
     
@@ -49,27 +49,21 @@ fetch('http://127.0.0.1:3000/agencias/obterAgencias', {
     for (const agencia of agencias_div) {
         agencia.addEventListener('click', () => {
             console.log(agencia.id);
+            console.log(agencia.getAttribute('data-estado'));
             
-            fetch('http://127.0.0.1:3000/fazerBusca', {
-                method: 'POST',
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: agencia.id })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao enviar os dados');
-                }
-                return response.json();
-            })
-            .then(data => {
-                window.location.href = '/paginas/busca.html'
-            })
+            const uf_ret = agencia.getAttribute('data-estado');
+            const ag_ret = agencia.id;
+
+            salvarAG_ES(uf_ret, ag_ret);
+
+            window.location.href = 'http://127.0.0.1:3000/paginas/busca.html'
         });
     }
 })
 
 
 
+function salvarAG_ES(uf_ret, ag_ret) {
+    sessionStorage.setItem('uf_ret', uf_ret);
+    sessionStorage.setItem('ag_ret', ag_ret);
+}

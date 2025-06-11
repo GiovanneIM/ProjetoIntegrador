@@ -17,7 +17,7 @@ body{
 .container{
     display: flex; 
     gap: 112px;
-    transition: transform 0.5s ease;
+    transition: transform 0.75s ease;
 }
 
 .container.form2 {

@@ -1,0 +1,144 @@
+/* CLASSES GERAIS */
+
+
+/* ========================================================== */
+
+/* BANNER 1*/
+.banner-texto-cadastro {
+    margin-top: 120px;
+    color: aliceblue;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.2;
+}
+
+.banner-h1{
+    font-size: 60px;
+    color: aliceblue;
+    font-family: "Lato", sans-serif;
+    justify-content:left;
+}
+
+.banner-p {    
+    color: rgb(172, 176, 189);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+
+/* ========================================================== */
+
+/* --- QUADROS --- */
+.tabela{
+    display: grid;
+    margin: auto;
+    column-gap: 5%;
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.celula{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.quadro_texto{
+    background-color: white;
+    width: 500px;
+    padding: 50px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.quadro_texto h1{
+    text-align: center;
+    color: #0a3d62;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+
+.quadro_texto p{
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    color: #444;
+}
+
+.quadro_imagem{
+    height: 350px;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+
+
+/* --- COMO AGENDAR --- */
+
+.quadro-comoAgendar{
+    background-color:white;
+    transition: .5s;
+    width: 80%;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px 3px rgba(0,0,0,0.5);
+    padding-bottom: 35px;
+}
+
+.quadro-comoAgendar h3{
+    font-size: 35px;
+    color: #0a3d62;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.quadro-comoAgendar p{
+    font-family: "Varela Round", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    font-style: normal;
+    color: #444;
+    text-align: center;
+}
+
+.quadro-comoAgendar img{
+    width:20%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    display: inline-block;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+}
+
+.quadro-comoAgendar img:hover{
+    transform: translateY(-10px); 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* --- BANNER 2 --- */
+
+.banner2-img{
+    width: 100%; 
+    position: absolute; 
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    transition: transform 0.5s ease;
+}
+
+.banner2-img img:hover{
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+
+
+/* --- EXIBIÇÃO DE VEÍCULOS --- */
+
+
+
+/* ============================================ */

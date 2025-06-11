@@ -12,9 +12,11 @@ const fs = require('fs');                           // Manipulação de arquivos
 
 
 const f_dados = require('./banco/funcoesdados.js'); // Importando as funções para carregar e salvar usuários e veículos
-const usuarios = f_dados.carregarUsuarios();                    // Carregando usuários do sistema
-const veiculos = f_dados.carregarVeiculos();                    // Carregando veículos do sistema
-const reservas = f_dados.carregarReservas();
+let usuarios = f_dados.carregarUsuarios();                    // Carregando usuários do sistema
+let veiculos = f_dados.carregarVeiculos();                    // Carregando veículos do sistema
+let reservas = f_dados.carregarReservas();                    // Carregando reservas do sistema
+let agencias = f_dados.carregarAgencias();                    // Carregando agencias do sistema
+
 
 // ============================================================
 
@@ -23,7 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../SITE')));                                      // Disponibilizando as páginas do site
 app.use('/imagens/padrao', express.static(path.join(__dirname, 'imagens/usuarios/padrao')));   // Disponibilizando a pasta de imagens padrões
-app.use('/imagens/padrao', express.static(path.join(__dirname, 'imagens/veiculos')));          // Disponibilizando a pasta de imagens dos veiculos
+app.use('/imagens/veiculos', express.static(path.join(__dirname, 'imagens/veiculos')));        // Disponibilizando a pasta de imagens dos veiculos
+
 
 
 app.use(session({
@@ -217,42 +220,143 @@ app.use('/agencias', rotasAgencias);
 
 
 /* =============== Rotas de VEÍCULOS ========================== */
+
 // Rotas de VEÍCULOS
 const rotasVeiculos = require('./rotas/rotasVeiculos.js');
 app.use('/veiculos', rotasVeiculos);
 /* Acessadas por meio de http://IP_API/veiculos/__(rota)___ */
 
-/* Lógica para acessar a imagem do veiculo */
-app.get('/imagens/veiculos/:imagem', (req, res) => {
-  const { imagem } = req.params;
-
-  // Verifica se o usuário está logado e é o dono da imagem
-
-  const caminhoImagem = path.join(__dirname, 'imagens', 'veiculos', imagem);
-  if (!fs.existsSync(caminhoImagem)) {
-    return res.status(404).send('Imagem não encontrada');
-  }
-
-  res.sendFile(caminhoImagem);
-});
 
 
 
 /* =============== Rotas de RESERVAS ========================== */
+
 // Rotas de RESERVAS
-const rotasReservas = require('./rotas/rotasReservas.js');
-app.use('/reservas', rotasReservas);
+const { router: veiculoRouter, atualizarStatusReservas } = require('./rotas/rotasReservas.js');
+app.use('/veiculos', veiculoRouter);
+
+atualizarStatusReservas(); // executa ao iniciar
+
 /* Acessadas por meio de http://IP_API/reservas/__(rota)___ */
 
-/* Lógica para guardar a agência na qual o usuário está fazendo uma busca */
-app.post('/fazerBusca', (req, res) => {
-  req.usuario.busca = req.body.id;
+
+/* Lógica para criat uma reserva */
+app.post('/criarReserva', (req, res) => {
+    // Verifica se o usuário está logado
+    if (!req.usuario || !req.usuario.ID) {
+        return res.status(401).json({ erro: 'Usuário não autenticado.' });
+    }
+
+    const usuario_ID = req.usuario.ID;
+    const novaReserva = req.body;
+
+    // Inicializa o array de reservas do usuário se ainda não existir
+    if (!reservas[usuario_ID]) {
+        reservas[usuario_ID] = [];
+    }
+
+    novaReserva["id_usuario"] = usuario_ID;
+    novaReserva["id_reserva"] = reservas[usuario_ID].length;
+    novaReserva["status"] = "Agendada";
+
+    reservas[usuario_ID].push(novaReserva);
+
+    // Tornando o veículo indisponível
+    const agenciaID = String(novaReserva['retirada'].ag);
+    const idVeiculo = Number(novaReserva.id_veiculo);
+
+    const listaVeiculos = veiculos[agenciaID];
+    const veiculo = listaVeiculos.find(v => v.ID === idVeiculo);
+    veiculo.disponivel = false;
+
+    f_dados.salvarReservas(reservas);
+    f_dados.salvarVeiculos(veiculos);
+
+    res.status(201).json({ mensagem: 'Reserva criada com sucesso!', id_reserva: novaReserva["id_reserva"] });
 });
 
 
+/* Lógica para obter as reservas de um usuário */
+app.get('/obterReservas', (req, res) => {
+    if (!req.usuario || !req.usuario.ID) {
+        return res.status(401).json({ erro: 'Usuário não autenticado.' });
+    }
+
+    reservas = f_dados.carregarReservas();
+
+    const usuario_ID = String(req.usuario.ID);
+    const reservasDoUsuario = reservas[usuario_ID] || [];
 
 
+    // Anexar dados do veículo em cada reserva
+    const reservasComVeiculo = reservasDoUsuario.map(reserva => {
+        const agenciaID_ret = Number(reserva.retirada.ag);
+        const agencia_ret = agencias.find(a => a.ID === agenciaID_ret);
+        
+        const agenciaID_dev = reserva.devolucao.ag? Number(reserva.devolucao.ag): Number(reserva.retirada.ag);
+        const agencia_dev = agencias.find(a => a.ID === agenciaID_dev);
 
+        const idVeiculo = Number(reserva.id_veiculo);
+        let veiculo = null;
+
+		if (reserva.status === 'Agendada') {
+			veiculo = veiculos[agenciaID_ret]?.find(v => v.ID === idVeiculo);
+		} else {
+			// Procura o veículo em todas as agências
+			for (const ag of Object.keys(veiculos)) {
+				veiculo = veiculos[ag]?.find(v => v.ID === idVeiculo);
+				if (veiculo) break;
+			}
+		}
+
+
+        return {
+            ...reserva,
+            veiculo: veiculo || null,
+            agencia_ret: agencia_ret || null,
+            agencia_dev: agencia_dev || null
+        };
+    });
+
+    res.json({ reservasDoUsuario: reservasComVeiculo });
+});
+
+
+/* Lógica para cancelar uma reserva */
+app.post('/cancelarReserva', (req, res) => {
+    // Verifica se o usuário está logado
+    if (!req.usuario || !req.usuario.ID) {
+        return res.status(401).json({ erro: 'Usuário não autenticado.' });
+    }
+
+    const usuario_ID = req.usuario.ID;
+    const reserva_ID = req.body.id_reserva;
+    const veiculo_ID = req.body.id_veiculo;
+
+    // Carregando os dados mais recentes
+    reservas = f_dados.carregarReservas();
+    veiculos = f_dados.carregarVeiculos();
+
+    // Obtendo as reservas do usuário
+    const reservasUsuario = reservas[usuario_ID];
+
+    // Encontrando a reserva
+    const reserva = reservasUsuario.find(r => r.id_reserva == reserva_ID)
+    reserva.status = 'Cancelada'
+
+    // Obtendo a lista de veículos da agência
+    const agencia_ID = String( reserva.retirada.ag );
+    const listaVeiculos = veiculos[agencia_ID];
+
+    // Encontrando o veículo
+    const veiculo = listaVeiculos.find(v => v.ID === veiculo_ID);
+    veiculo.disponivel = true;
+
+    f_dados.salvarReservas(reservas);
+    f_dados.salvarVeiculos(veiculos);
+
+    res.status(201).json({ mensagem: 'Reserva cancelada com sucesso!' });
+});
 
 
 
@@ -260,6 +364,7 @@ app.post('/fazerBusca', (req, res) => {
 
 // Iniciando o servidor
 app.listen(porta, () => {
-  console.log(`Servidor rodando em http://localhost:${porta}`);
-});
+    console.log(`Servidor rodando em http://localhost:${porta}`);
 
+    atualizarStatusReservas(); // Executa a função ao iniciar
+});

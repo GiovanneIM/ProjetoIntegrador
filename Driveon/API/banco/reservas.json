@@ -1,1 +1,94 @@
-[]
+{
+    "1": [
+        {
+            "retirada": {
+                "data": "09/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "devolucao": {
+                "data": "10/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "2"
+            },
+            "id_veiculo": "0",
+            "id_usuario": 1,
+            "id_reserva": 0,
+            "status": "Concluída"
+        },
+        {
+            "retirada": {
+                "data": "12/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "devolucao": {
+                "data": "13/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "id_veiculo": "1",
+            "id_usuario": 1,
+            "id_reserva": 1,
+            "status": "Cancelada"
+        },
+        {
+            "retirada": {
+                "data": "19/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "devolucao": {
+                "data": "20/06/2025",
+                "hora": "08:00",
+                "uf": "nulo",
+                "ag": "1"
+            },
+            "id_veiculo": "1",
+            "id_usuario": 1,
+            "id_reserva": 2,
+            "status": "Agendada"
+        },
+        {
+            "retirada": {
+                "data": "10/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "devolucao": {
+                "data": "18/06/2025",
+                "hora": "08:00",
+                "uf": "AC",
+                "ag": "1"
+            },
+            "id_veiculo": "16",
+            "id_usuario": 1,
+            "id_reserva": 3,
+            "status": "Em andamento"
+        },
+        {
+            "retirada": {
+                "data": "12/06/2025",
+                "hora": "08:00",
+                "uf": "RJ",
+                "ag": "37"
+            },
+            "devolucao": {
+                "data": "13/06/2025",
+                "hora": "08:00",
+                "uf": "PB",
+                "ag": "29"
+            },
+            "id_veiculo": "616",
+            "id_usuario": 1,
+            "id_reserva": 4,
+            "status": "Agendada"
+        }
+    ]
+}

@@ -15,6 +15,7 @@
     <link href="css/geral/header-footer.css" rel="stylesheet" />
     <link href="css/geral/banner.css" rel="stylesheet" />
     <link href="css/geral/barrareserva.css" rel="stylesheet" />
+    <link href="css/geral/tema_escuro.css" rel="stylesheet" />
 
 
     <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css" />
@@ -39,7 +40,7 @@
         <button class="open-btn" id="openBtn" onclick="openSidebar()">☰</button>
 
         <div class="header-geral">
-            <a href="index.html">
+            <a class="link_" data-link="inicio">
                 <div>
                     <div style="display: flex;">
                         <div><img class="header-icone" src="imagens/logo//logo-semtexto.png"></div>
@@ -50,14 +51,14 @@
                 </div>
             </a>
 
-            <a href="paginas/pages-User/login.html" class="naoLogado">
+            <a class="link_ naoLogado" data-link="login">
                 <div style="display: flex;">
                     <img class="header-icone" src="imagens/setas/login.png">
                     <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
                 </div>
             </a>
 
-            <a href="paginas/pages-User/perfil.html" class="logado">
+            <a class="link_ logado" data-link="perfil">
                 <div style="display: flex;">
                     <div style="position: relative; margin-right: 10px;">
                         <img class="header-icone" src="imagens/setas/seta.png">
@@ -86,14 +87,14 @@
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <div style="display: flex;">
-                    <a href="paginas/pages-User/login.html" class="naoLogado" style="width: 150px;">
+                    <a class="link_ naoLogado" data-link="login" href="" style="width: 150px;">
                         <div style="display: flex;">
                             <img class="header-icone" src="imagens/setas/login.png">
                             <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
                         </div>
                     </a>
 
-                    <a href="paginas/pages-User/perfil.html" class="logado" style="width: 150px;">
+                    <a class="link_ logado" data-link="perfil" href="" style="width: 150px;">
                         <div style="display: flex;">
                             <div style="position: relative; margin-right: 10px;">
                                 <img class="header-icone" src="imagens/setas/seta.png">
@@ -111,14 +112,15 @@
             </div>
 
             <!-- NAVEGAÇÃO -->
-            <a href="index.html">Página Inicial</a>
-            <a href="paginas/pages-User/perfil.html" class="logado">Meu perfil</a>
-            <a href="paginas/cadastro.html">Ajuda</a>
-            <a href="paginas/sobre_nos_teste.html">Sobre Nós</a>
-            <a href="index.html" class="logado logout">Sair</a>
+            <a class="link_" data-link="inicio">Página Inicial</a>
+            <a class="link_ logado" data-link="perfil">Meu perfil</a>
+            <a class="link_" data-link="busca">Buscar Veículo</a>
+            <a class="link_" data-link="ajuda">Ajuda</a>
+            <a class="link_" data-link="sobreNos">Sobre Nós</a>
+            <a class="link_ logado logout" data-link="inicio">Sair</a>
         </div>
 
-        <div class="">
+        <div style="display: flex; flex-direction: column; gap: 15px;">
             <!-- Tema escuro e claro -->
             <div style="display: flex; justify-content: center; align-items: center; ">
 
@@ -131,7 +133,7 @@
 
 
             <!-- LOGO -->
-            <a href="index.html" style="margin-bottom: 15px;">
+            <a class="link_" data-link="inicio" style="margin-bottom: 15px;">
                 <div style="display: flex;">
                     <div><img class="header-icone" src="imagens/logo//logo-semtexto.png"></div>
                     <div class="header-texto"><span style="line-height: 1;"><span
@@ -318,7 +320,7 @@
             </div>
         </div>
         <div class="footer_div">
-            <div><a href="index.html"><img class="logo_DriveOn" src="imagens/logo/logo-txtpreto.png"></a></div>
+            <div><a class="link_" data-link="inicio"><img class="logo_DriveOn logo_DriveOn_txt" src="imagens/logo/logo-txtpreto.png"></a></div>
             <div>
                 <p>© 2025 DriveOn. Todos os direitos reservados.</p>
             </div>
@@ -326,7 +328,7 @@
                 <p>Siga-nos em nossas redes sociais:</p>
                 <div class="redessociais">
                     <img class="logo" src="imagens/redessociais/facebook.png">
-                    <a href="https://www.instagram.com/locadora_driveon/?next=%2F">
+                    <a href="https://www.instagram.com/locadora_driveon/?next=%2F" target="_blank">
                         <img class="logo" src="imagens/redessociais/instagram.png">
                     </a>
                     <img class="logo" src="imagens/redessociais/linkedin.png">
@@ -347,6 +349,9 @@
     <script src="javascript/geral/variavelUsuario.js"></script>
     <script src="javascript/geral/sidebar.js"></script>
     <script src="javascript/geral/barrareserva.js"></script>
+
+    <!-- SCRIPT DE LINKS   carregar por último!-->
+    <script src="javascript/geral/links.js"></script>
 
 </body>
 

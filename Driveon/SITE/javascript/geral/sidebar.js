@@ -19,64 +19,124 @@ window.addEventListener('scroll', function () {
 
 
 
-
-
-
-
 // Altera o tema
 
 let trilho = document.getElementById('trilho');
 let body = document.querySelector('body');
 
+
+// Obtendo as logos com texto
+const logos_txt = document.getElementsByClassName('logo_DriveOn_txt')
+
+
 let claro = true
 trilho.addEventListener('click', () => {
     trilho.classList.toggle('dark');
-    body.classList.toggle('dark');
+    // body.classList.toggle('dark');
 
     if (claro) {
         claro = false;
-        document.getElementById('iconeTema').src = "../imagens/diversos/lua.png"
-        document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtbranco.png"
 
-        document.getElementById('imagem_logo').src = "../imagens/logo/logo-txtbranco.png"
-        document.getElementById('paragrafo-footer');
+        // Alterando cor de fundo do body
+        body.style.backgroundColor = 'rgb(28,28,28)';
 
+        // Alterando icone do seletor de tema
+        document.getElementById('iconeTema').src = "../imagens/diversos/lua.png";
 
+        // Alterando as imagens da logo com texto
+        alterarLogoTXT();
 
-        const links = document.getElementsByClassName('footer_link');
-        for (const link of links) {
-            link.style.color = 'white'
-
-            let titulos = document.getElementsByClassName("titulo")
-            for (const titulo of titulos) {
-                titulo.style.color = "#FFFF"
+        // Alterando elementos do footer
+        const elementos_footer = document.querySelectorAll('[class*="footer_"]');
+        elementos_footer.forEach(el => {
+            switch (el.className) {
+                case 'footer_div':
+                    el.style.color = 'gold';
+                    break;
+                
+                case 'footer_link':
+                    el.style.color = 'white';
+                    break;
             }
+        });
 
-            let paragrafos = document.getElementsByClassName('paragrafo-footer')
-            for(const paragrafo of paragrafos){
-                paragrafo.style.color = "white"
-            }
-
-            let imagens = document.getElementsByClassName("imagem-1")
-            for(const imagem of imagens){
-                imagem.getElementsByClassName = "../imagens/logo/logo-txtpreto.png"
-            }
+        const titulos = document.getElementsByClassName('titulo');
+        for (var titulo of titulos) {
+            titulo.style.color = 'gold';
         }
-    }
 
+        alterarPagina();
+        
+    }
     else {
         claro = true;
+
+        // Alterando cor de fundo do body
+        body.style.backgroundColor = '#fafbfc';
+
+        // Alterando icone do seletor de tema
         document.getElementById('iconeTema').src = "../imagens/diversos/sol.png"
-        document.getElementById('logo_DriveOn').src = "../imagens/logo/logo-txtpreto.png"
 
-        document.getElementById('imagem_logo').src = "../imagens/logo/logo-txtpreto.png"
+        // Alterando as imagens da logo com texto
+        alterarLogoTXT();
 
+        // Alterando elementos do footer
+        const elementos_footer = document.querySelectorAll('[class*="footer_"]');
+        elementos_footer.forEach(el => {
+            switch (el.className) {
+                case 'footer_div':
+                    el.style.color = '#575756'
+                    break;
 
-        const links = document.getElementsByClassName('footer_link');
-        for (const link of links) {
-        link.style.color = 'black'
+                case 'footer_link':
+                        el.style.color = 'black'
+                        break;
+
+                default:
+                    break;
+            }
+        });
+
+        const titulos = document.getElementsByClassName('titulo');
+        for (var titulo of titulos) {
+            titulo.style.color = 'black';
         }
+
+        alterarPagina();
       
     }
 
 })
+
+
+function alterarLogoTXT() {
+    let imagem;
+
+    if (claro) {
+        imagem = "../imagens/logo/logo-txtpreto.png";
+    }
+    else {
+        imagem = "../imagens/logo/logo-txtbranco.png"
+    }
+
+    for (const logo of logos_txt) {
+        logo.src = imagem
+    }
+}
+
+
+function alterarPagina() {
+    const classesBeP = [];
+
+    if (window.location.pathname == '/' || window.location.pathname == '/index.html') {
+        classesBeP.push('estado', 'agencia-endereco', 'agencia-CEP');
+    }
+
+
+    for (const classe of classesBeP) {
+        const elementos = document.getElementsByClassName(classe)
+        for (const elemento of elementos) {
+            elemento.style.color = claro? 'black':'white';
+        }
+    }
+}

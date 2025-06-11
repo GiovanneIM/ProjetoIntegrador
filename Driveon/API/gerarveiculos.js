@@ -19,45 +19,58 @@ function salvarVeiculos(agencias) {
 
 // agencia_ID → de 1 a 54
 
-// Vetor com as imagend dos carros → de 1 a 9
-const imagens = [
-    '/imagens/veiculos/blazereevrs.png',
-    '/imagens/veiculos/camaro.png',
-    '/imagens/veiculos/equinox.png',
-    '/imagens/veiculos/montana.png',
-    '/imagens/veiculos/onixplus.png',
-    '/imagens/veiculos/silverado.png',
-    '/imagens/veiculos/spin.png',
-    '/imagens/veiculos/tracker.png',
-    '/imagens/veiculos/trailblazer.png'
-]
-
 // marca
 const marca = 'Chevrolet'
 
-// Vetor com os modelos dos carros → de 1 a 9
+// MODELOS DOS CARROS → de 0 a 17
 const modelo = [
+    'Chevrolet Onix',
+    'Chevrolet Onix Plus',
+    'Chevrolet S10 Cabine Simples',
+    'Chevrolet S10 High Country',
+    'Chevrolet S10 LTZ',
+    'Chevrolet S10 WT AT',
+    'Chevrolet S10 Z71',
+    'Chevrolet Spin 1.8 AT',
+    'Chevrolet Spin LT',
+    'Chevrolet Spin LTZ',
+    'Chevrolet Spin Premier',
+    'Chevrolet Tracker',
+    'Chevrolet Trailblazer',
     'Chevrolet Blazer EV RS',
     'Chevrolet Camaro',
     'Chevrolet Equinox',
     'Chevrolet Montana',
-    'Chevrolet Onix Plus',
-    'Chevrolet Silverado',
-    'Chevrolet Spin',
-    'Chevrolet Tracker',
-    'Chevrolet Trailblazer'
+    'Chevrolet Silverado'
 ]
 
-// Vetor com os anos de fabricacao → de 1 a 5
-const anoFabricacao = [
-    2020,
-    2021,
-    2022,
-    2023,
-    2024
-]
+// ANOS DE FABRICAÇÃO → de 0 a 5
+const anoFabricacao = [ 2019, 2020, 2021, 2022, 2023, 2024]
 
+// Vetor para controlar o número de veículos
 let numveiculos = 0;
+
+// Cores dos modelos
+const cores = {
+    'Chevrolet Onix': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet Onix Plus': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet S10 Cabine Simples': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet S10 High Country': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet S10 LTZ': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet S10 WT AT': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet S10 Z71': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Vermelho'],
+    'Chevrolet Spin 1.8 AT': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto'],
+    'Chevrolet Spin LT': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto'],
+    'Chevrolet Spin LTZ': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto'],
+    'Chevrolet Spin Premier': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto'],
+    'Chevrolet Tracker': ['Azul', 'Branco', 'Cinza', 'Prata', 'Preto', 'Verde', 'Vermelho'],
+    'Chevrolet Trailblazer': ['Branco', 'Cinza', 'Prata', 'Preto', 'Verde'],
+    'Chevrolet Blazer EV RS': ['Vermelho'],
+    'Chevrolet Camaro': ['Preto'],
+    'Chevrolet Equinox': ['Verde'],
+    'Chevrolet Montana': ['Vermelho'],
+    'Chevrolet Silverado': ['Prata']
+}
 
 
 
@@ -69,27 +82,44 @@ for (let agencia_ID = 1; agencia_ID <= 54; agencia_ID++) {
 
     const veiculosDaAgencia = [];
 
-    for (let i = 0; i < aleatorioEntre(10, 15); i++) {
 
-        const numModelo = aleatorioEntre(0, 8);
-        const ano = aleatorioEntre(0, 4);
-        const preco = randomDecimal(85, 110);
+    // Gera de 15 a 20 veiculos
+    for (let i = 0; i < aleatorioEntre(15, 20); i++) {
+
         
+        const numModelo = aleatorioEntre(0, modelo.length - 1);
+        const ano = aleatorioEntre(0, anoFabricacao.length - 1);
+        const preco = randomDecimal(85, 110);
+        const nomeModelo = modelo[numModelo];
+
+        const coresDisponiveis = cores[nomeModelo];
+        const cor = coresDisponiveis[aleatorioEntre(0, coresDisponiveis.length - 1)];
+
+        const nomeModelohifen = nomeModelo.replaceAll(' ', '-').replaceAll('Chevrolet-', '');
+        const imagem = `/imagens/veiculos/${nomeModelohifen}/${nomeModelohifen}-${cor}.png`;
+
+
+        // Criando veículo
         const novoveiculo = {
             "agencia_ID": agencia_ID,
-            "imagem": imagens[numModelo],
+            "cor": cor,
+            "imagem": imagem,
             "marca": marca,
-            "modelo": modelo[numModelo],
+            "modelo": nomeModelo,
             "preco": preco,
             "disponivel": true,
             "ID": numveiculos,
             "anoFabricacao": anoFabricacao[ano]
         };
 
-        numveiculos++;
 
+        // Adicionando à agência
         veiculosDaAgencia.push(novoveiculo);
+
+        // Atualizando o númeto de veículos
+        numveiculos++;
     }
+
 
     agencias[agencia_ID] = veiculosDaAgencia;
 }

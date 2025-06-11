@@ -15,8 +15,6 @@
 <body>
     <!-- HEADER -->
     <header>
-        <button class="open-btn" id="openBtn" onclick="openSidebar()">☰</button>
-
         <div class="header-geral">
             <a href="../../index.html">
                 <div>
@@ -46,22 +44,18 @@
         </div>
     </header>
 
-    <!-- BARRA FIXADA -->
-    <div class="barraFixada" id="barraFixada">
-        <button class="barraFixada-open-btn" id="openBtn" onclick="openSidebar()">☰</button>
-    </div>
 
     <!-- ========================================================== -->
-
+    <!-- CORPO -->
 
     <div class="corpo-perfil" style="height: auto;">
         <div style="display: flex; justify-content: center; font-family: Arial, Helvetica, sans-serif;"><h1>Atualização de Dados</h1></div>
             
         <!-- QUADRO -->
         <div class="quadro" style="display: block;">
-            <div style="display: flex;">
+            <div style="display: flex; gap: 24px;">
                 <!-- Foto do usuário -->
-                <div class="div_imagem_usuario">
+                <div class="div_imagem_usuario" style="height: 349px; flex-direction: column;">
                     <img id="foto" class="imagem_usuario foto_user" src="../../" alt="Foto de Perfil do Usuário" style="display: block; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">               
                     <label for="input-foto" class="selecionarimagem">Selecionar imagem</label>
                     <input type="file" id="input-foto" accept=".jpg, .jpeg, .png" hidden/>
@@ -155,6 +149,10 @@
         </div>
     </div>
 
+
+    <!-- ========================================================== -->
+
+
     <footer>
         <div class="footer_div">
 
@@ -177,7 +175,7 @@
             </div>
         </div>
         <div class="footer_div">
-            <div><a href="../../index.html"><img  class="logo_DriveOn" src="../../imagens/logo/logo-txtpreto.png"></a></div>
+            <div><a class="link_" data-link="inicio"><img  class="logo_DriveOn" src="../../imagens/logo/logo-txtpreto.png"></a></div>
             <div><p>© 2025 MoveOn. Todos os direitos reservados.</p></div>
             <div style="flex-direction: column; gap: 5px;">
                 <p>Siga-nos em nossas redes sociais:</p>
@@ -193,7 +191,7 @@
 
 
 
-    <script src="../../javascript/usuarios/variaveisdeusuario.js"></script>
+    <script src="../../javascript/geral/variavelUsuario.js"></script>
     <script src="../../javascript/cadastro - login/atualizardados.js"></script>
     <script>
         document.getElementById('input-foto').addEventListener('input', function (e) {
@@ -206,5 +204,7 @@
             }
         })
     </script>
+
+    <script src="../../javascript/geral/links.js"></script>
 </body>
 </html>

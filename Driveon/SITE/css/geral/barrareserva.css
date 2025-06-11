@@ -176,3 +176,9 @@
     display: flex;
     gap: 24px;
 }
+
+.atributo_fixo{
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bolder;
+}

@@ -21,7 +21,6 @@ a{
 .titulo{
     font-size: 50px;
     width: 100%;
-    /* color: rgb(11, 59, 102); */
     text-align: center;
     font-family: "Lato", sans-serif;
 }
@@ -90,6 +89,7 @@ footer{
     justify-content: space-between;
     align-self: center;
     border-top: 1px solid #ccc;
+    color: #575756;
 }
 
 .footer_div div{
@@ -100,7 +100,7 @@ footer{
 }
 
 footer span, footer p{
-    color: #575756;
+    /* color: #575756; */
     margin: 0;
 }
 
@@ -113,6 +113,18 @@ footer span, footer p{
     width: 35px;
 }
 
+.footer_link{
+    text-decoration: none;
+    color: black;
+}
+
+.footer_link :hover{
+    text-decoration: underline;
+}
+
+.footer_div a{
+    display: flex;
+}
 
 /* ================================================================================ */
 
@@ -212,11 +224,8 @@ footer span, footer p{
     font-size: 20px;
 }
 
-.footer_link{
-    text-decoration: none;
-    color: black;
-}
 
-.footer_link :hover{
-    text-decoration: underline;
+
+button:hover{
+    filter: brightness(75%);
 }

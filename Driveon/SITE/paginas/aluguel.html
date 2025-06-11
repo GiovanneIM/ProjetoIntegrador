@@ -34,7 +34,7 @@
         <button class="open-btn" id="openBtn" onclick="openSidebar()">☰</button>
 
         <div class="header-geral">
-            <a href="../index.html">
+            <a class="link_" data-link="inicio">
                 <div>
                     <div style="display: flex;">
                         <div><img class="header-icone" src="../imagens/logo//logo-semtexto.png"></div>
@@ -45,14 +45,14 @@
                 </div>
             </a>
 
-            <a href="../paginas/pages-User/login.html" class="naoLogado">
+            <a class="link_ naoLogado" data-link="login">
                 <div style="display: flex;">
                     <img class="header-icone" src="../imagens/setas/login.png">
                     <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
                 </div>
             </a>
 
-            <a href="../paginas/pages-User/perfil.html" class="logado">
+            <a class="link_ logado" data-link="perfil">
                 <div style="display: flex;">
                     <div style="position: relative; margin-right: 10px;">
                         <img class="header-icone" src="../imagens/setas/seta.png">
@@ -81,14 +81,14 @@
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <div style="display: flex;">
-                    <a href="../paginas/pages-User/login.html" class="naoLogado" style="width: 150px;">
+                    <a class="link_ naoLogado" data-link="login" href="" style="width: 150px;">
                         <div style="display: flex;">
                             <img class="header-icone" src="../imagens/setas/login.png">
                             <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
                         </div>
                     </a>
 
-                    <a href="../paginas/pages-User/perfil.html" class="logado" style="width: 150px;">
+                    <a class="link_ logado" data-link="perfil" href="" style="width: 150px;">
                         <div style="display: flex;">
                             <div style="position: relative; margin-right: 10px;">
                                 <img class="header-icone" src="../imagens/setas/seta.png">
@@ -99,39 +99,54 @@
                                         class="nome_user"></b></span></div>
                         </div>
                     </a>
+
                 </div>
 
                 <div class="close-btn" id="closeBtn" onclick="closeSidebar()">☰</div>
             </div>
 
             <!-- NAVEGAÇÃO -->
-            <a href="../index.html">Página Inicial</a>
-            <a href="../paginas/pages-User/perfil.html" class="logado">Meu perfil</a>
-            <a href="../paginas/cadastro.html">Ajuda</a>
-            <a href="../paginas/sobre_nos_teste.html">Sobre Nós</a>
-            <a href="../index.html" class="logado logout">Sair</a>
+            <a class="link_" data-link="inicio">Página Inicial</a>
+            <a class="link_ logado" data-link="perfil">Meu perfil</a>
+            <a class="link_" data-link="busca">Buscar Veículo</a>
+            <a class="link_" data-link="ajuda">Ajuda</a>
+            <a class="link_" data-link="sobreNos">Sobre Nós</a>
+            <a class="link_ logado logout" data-link="inicio">Sair</a>
         </div>
 
-        <!-- LOGO -->
-        <a href="../index.html" style="margin-bottom: 15px;">
-            <div style="display: flex;">
-                <div><img class="header-icone" src="../imagens/logo//logo-semtexto.png"></div>
-                <div class="header-texto"><span style="line-height: 1;"><span
-                            style="font-size: 33px;"><b>DriveOn</b></span><br><span style="font-size: 11.7px;">Trilhando
-                            seu caminho!</span></span></div>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <!-- Tema escuro e claro -->
+            <div style="display: flex; justify-content: center; align-items: center; ">
+
+                <div class="trilho" id="trilho">
+                    <div class="indicador" style="display: flex; justify-content: center; align-items: center;">
+                        <img id="iconeTema" src="../imagens/diversos/sol.png" width="30px">
+                    </div>
+                </div>
             </div>
-        </a>
+
+
+            <!-- LOGO -->
+            <a class="link_" data-link="inicio" style="margin-bottom: 15px;">
+                <div style="display: flex;">
+                    <div><img class="header-icone" src="../imagens/logo//logo-semtexto.png"></div>
+                    <div class="header-texto"><span style="line-height: 1;"><span
+                                style="font-size: 33px;"><b>DriveOn</b></span><br><span
+                                style="font-size: 11.7px;">Trilhando
+                                seu caminho!</span></span></div>
+                </div>
+            </a>
+        </div>
     </div>
     <!-- DIV ESCURA E TRANSPARENTE PARA ESCURECER A PÁGINA-->
     <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
 
     <!-- ========================================================== -->
 
 
     <!-- CORPO -->
     <div class="corpo">
-        <h1 class="titulo">Alugue de seu carro</h1>
+        <h1 class="titulo">Alugue seu carro</h1>
 
         <div class="div_geral">
             <div id="infos_carro">
@@ -157,12 +172,12 @@
                                 <div class="cidade_forms" style="border-right: 1px solid #e5e7eb;">
                                     <div class="div_estado">
                                         <label for="uf_ret">Estado</label>
-                                        <div id="uf_ret_div"></div>
+                                        <div class="atributo_fixo" id="uf_ret_div"></div>
                                     </div>
 
                                     <div class="div_agencia">
                                         <label for="ag_ret">Agencia</label>
-                                        <div id="ag_ret_div"></div>
+                                        <div class="atributo_fixo" id="ag_ret_div"></div>
                                     </div>
                                 </div>
 
@@ -244,6 +259,11 @@
                     <!-- <button id="btn_Buscar">Buscar</button> -->
                 </div>
             </div>
+
+            <div class="botoes">
+                <button class="btn_cinza" id="btn_Voltar">Voltar</button>
+                <button class="btn_azul" id="btn_Reservar">Confirmar reserva</button>
+            </div>
         </div>
 
 
@@ -288,8 +308,11 @@
             <div style="flex-direction: column; gap: 5px;">
                 <p>Siga-nos em nossas redes sociais:</p>
                 <div class="redessociais">
+                    
                     <img class="logo" src="../imagens/redessociais/facebook.png">
-                    <img class="logo" src="../imagens/redessociais/instagram.png">
+                    <a href="https://www.instagram.com/locadora_driveon/?next=%2F "  target="_blank">
+                        <img class="logo" src="../imagens/redessociais/instagram.png">
+                    </a>
                     <img class="logo" src="../imagens/redessociais/linkedin.png">
                     <img class="logo" src="../imagens/redessociais/x.png">
                 </div>
@@ -309,6 +332,8 @@
     <script src="../javascript/geral/variavelUsuario.js"></script>
     <script src="../javascript/geral/sidebar.js"></script>
 
+    <!-- SCRIPT DE LINKS   carregar por último!-->
+    <script src="../javascript/geral/links.js"></script>
 </body>
 
 </html>

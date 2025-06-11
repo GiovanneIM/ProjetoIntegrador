@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveOn - Como Alugar?</title>
+    <link rel="icon" href="../imagens/logo/logo-semtexto.png" type="image/x-icon">
+
+
+    <!-- Links específicos-->
+    <link rel="stylesheet" href="../css/ajuda.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!-- Links Gerais -->
+    <link href="../css/geral/header-footer.css" rel="stylesheet"/>
+    <link href="../css/geral/banner.css" rel="stylesheet"/>
+    <link href="../css/geral/barrareserva.css" rel="stylesheet"/>
+    <link href="../css/geral/tema_escuro.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css"/>     <!-- Fonte header -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <!-- Sweetalert -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+
+    <!-- FLATPICKR -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">                <!-- CSS do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>                                              <!-- JS do flatpickr -->
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">   <!-- Tema do flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>                  <!-- plugin do flatpickr-->
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <button class="open-btn" id="openBtn" onclick="openSidebar()">☰</button>
+
+        <div class="header-geral">
+            <a class="link_" data-link="inicio">
+                <div>
+                    <div style="display: flex;">
+                        <div><img class="header-icone" src="../imagens/logo//logo-semtexto.png"></div>
+                        <div class="header-texto"><span style="line-height: 1;"><span
+                                    style="font-size: 33px;"><b>DriveOn</b></span><br><span
+                                    style="font-size: 11.7px;">Trilhando seu caminho!</span></span></div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="link_ naoLogado" data-link="login">
+                <div style="display: flex;">
+                    <img class="header-icone" src="../imagens/setas/login.png">
+                    <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
+                </div>
+            </a>
+
+            <a class="link_ logado" data-link="perfil">
+                <div style="display: flex;">
+                    <div style="position: relative; margin-right: 10px;">
+                        <img class="header-icone" src="../imagens/setas/seta.png">
+                        <img class="header-fotousuario foto_user" src="">
+                    </div>
+
+                    <div class="header-texto">
+                        <span style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;">Bem-vindo(a),<br><b
+                                class="nome_user"></b></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- BARRA FIXADA -->
+    <div class="barraFixada" id="barraFixada">
+        <button class="barraFixada-open-btn" id="openBtn" onclick="openSidebar()">☰</button>
+    </div>
+
+
+    <!-- BARRA LATERAL -->
+    <div class="sidebar" id="sidebar">
+        <!-- LOGIN  ou USUÁRIO-->
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div style="display: flex;">
+                    <a class="link_ naoLogado" data-link="login" href="" style="width: 150px;">
+                        <div style="display: flex;">
+                            <img class="header-icone" src="../imagens/setas/login.png">
+                            <div class="header-texto"><span style="font-size: 22px;"><b>Login</b></span></div>
+                        </div>
+                    </a>
+
+                    <a class="link_ logado" data-link="perfil" href="" style="width: 150px;">
+                        <div style="display: flex;">
+                            <div style="position: relative; margin-right: 10px;">
+                                <img class="header-icone" src="../imagens/setas/seta.png">
+                                <img class="header-fotousuario foto_user" src="">
+                            </div>
+                            <div class="header-texto"><span
+                                    style="font-size: 22px; font-family: Arial, Helvetica, sans-serif;"><b
+                                        class="nome_user"></b></span></div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="close-btn" id="closeBtn" onclick="closeSidebar()">☰</div>
+            </div>
+
+            <!-- NAVEGAÇÃO -->
+            <a class="link_" data-link="inicio">Página Inicial</a>
+            <a class="link_ logado" data-link="perfil">Meu perfil</a>
+            <a class="link_" data-link="busca">Buscar Veículo</a>
+            <a class="link_" data-link="ajuda">Ajuda</a>
+            <a class="link_" data-link="sobreNos">Sobre Nós</a>
+            <a class="link_ logado logout" data-link="inicio">Sair</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <!-- Tema escuro e claro -->
+            <div style="display: flex; justify-content: center; align-items: center; ">
+
+                <div class="trilho" id="trilho">
+                    <div class="indicador" style="display: flex; justify-content: center; align-items: center;">
+                        <img id="iconeTema" src="../imagens/diversos/sol.png" width="30px">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- LOGO -->
+            <a class="link_" data-link="inicio" style="margin-bottom: 15px;">
+                <div style="display: flex;">
+                    <div><img class="header-icone" src="../imagens/logo//logo-semtexto.png"></div>
+                    <div class="header-texto"><span style="line-height: 1;"><span
+                                style="font-size: 33px;"><b>DriveOn</b></span><br><span
+                                style="font-size: 11.7px;">Trilhando
+                                seu caminho!</span></span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- DIV ESCURA E TRANSPARENTE PARA ESCURECER A PÁGINA-->
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+
+    <!-- ========================================================== -->
+    
+
+    <!-- BANNER 1 -->
+    <div class="banner">
+        <img class="banner-img" src="../imagens/fotodecapa.jpg" alt="Banner Aluguel de carros"/>
+
+        <div class="banner-conteudo">
+            <div class="banner-texto-cadastro" style="width: 90%; max-width: 1500px;">
+                    <h1 class="banner-h1">Alugue um carro agora</h1>
+
+                    <p class="banner-p"><strong> Otimize o seu tempo e aproveite <br>sua viagem com nossa locadora </strong></p>
+            
+                    <p class="banner-p">Alugue um veículo e <br>deixe sua viagem programada!</p>
+                    <br><br><br>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================== -->
+
+
+    <!-- CORPO -->
+    <div class="corpo" style="gap: 75px;">
+        <!-- Quadros -->
+        <div style="width: 100%;">
+            <!-- titulo -->
+            <h1 class="titulo">Porque alugar um veículo na Drive On?</h1>
+
+            <!-- Quadros -->
+            <div class="tabela">
+                <div class="celula">
+                    <div class="quadro_texto">
+                            <h1>Maior CONFORTO</h1>
+                            <p>Chega de passar perrengues na hora de planejar suas viagens.</p>
+                            <p>Precisa de mais assentos? Um porta-malas maior?</p>
+                            <p>Basta ir à uma de nossas agências e realizar a troca do veículo.</p>
+                        </div>
+                </div>
+
+                <div class="celula">
+                        <img src="../imagens/fotosecao1_2.jpg" class="quadro_imagem">
+                </div>
+
+                <div class="celula">
+                        <img src="../imagens/fotosecao1.jpg" class="quadro_imagem">
+                </div>
+
+                <div class="celula">
+                    <div class="quadro_texto">
+                        <h1>Maior EFICIÊNCIA</h1>
+                        <p> Nossos agendamentos são feitos de maneira dinâmica e rápida</p>
+                        <p>pensando no conforto e bem-estar de nossos clientes.</p>
+                    </div>
+                </div>
+
+                <div class="celula">
+                    <div class="quadro_texto">
+                        <h1>Maior FLEXIBILIDADE</h1>
+                        <p>Viagem em família? Com amigos? Viagem longa? curta?</p>
+                        <p>Não importa! A DriveOn tem  veículo perfeito para você!</p>
+                    </div>
+                </div>
+
+                <div class="celula">
+                    <img src="../imagens/fotonovasecao1.jpg" class="quadro_imagem">
+                </div>
+            </div>
+        </div>
+
+        <!-- Como agendar-->
+        <div class="quadro-comoAgendar">
+
+            <h3>Como posso fazer o agendamento do meu veículo?</h3>
+            <p>
+                O agendamento pode ser feito em <strong>sua casa</strong>, através de nossa agenda de veículos.<br>
+                Na agenda de veículos <strong>cadastramos a sua escolha de carro, data e hora </strong>e deixamos reservado para você!
+            </p>
+
+            <div style="display: flex; justify-content: space-around;">
+                    <img src="../imagens/secao2imagem3.png" alt="">
+                    <img src="../imagens/secao2agendamento.png" alt="" >
+                    <img src="../imagens/secao2imagem2.png" alt="" >
+            </div>
+        </div>
+                    
+        <!-- Banner 2 -->
+        <div class="banner">
+            <img class="banner-img" src="../imagens/fotosecao3.jpg" alt="Banner Aluguel de carros"/>
+
+            <div class="banner-conteudo">
+
+                <div style="text-align: center;">
+                    <h3 class="banner-h1" style="font-size: 35px;"> Quais as vantagens de alugar seu veículo na DriveOn? </h3>
+                </div>
+
+                <div  class="banner2-img">
+                    <img src="../imagens/imagem1secao3.png" style="width: 33%;">
+                    <img src="../imagens/imagem2secao3.png" style="width: 33%;">
+                    <img src="../imagens/imagem3secao3.png" style="width: 33%;">
+                </div>
+            
+            </div>
+        </div>
+
+
+        <!-- BARRA -->
+        <form id="form_busca">
+            <div class="barra">
+                <!-- LOCAIS -->
+                <div class="cidade">
+                    <div class="barra-icone">
+                        <img class="icone" src="../imagens/diversos/local.png">
+                    </div>
+
+                    <div>
+                        <!-- Titulos -->
+                        <div style="width: fit-content; display: flex;">
+                            <div class="barra-titulo" style="border-right: 1px solid #e5e7eb;">Retirada</div>
+                            <div class="barra-titulo">Devolução</div>
+                        </div>
+
+                        <div style="width: fit-content; display: flex; height: 70px;">
+                            <div class="cidade_forms" style="border-right: 1px solid #e5e7eb;">
+                                <div class="div_estado">
+                                    <label for="uf_ret">Estado</label>
+                                    <select id="uf_ret" name="uf_ret">
+                                    </select>
+                                </div>
+
+                                <div class="div_agencia">
+                                    <label for="ag_ret">Agencia</label>
+                                    <select id="ag_ret" name="ag_ret">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="local-diferente" onclick="exibirSelectDev()" id="local-diferente">
+                                <span> + Devolver em um lugar diferente</span>
+
+                            </div>
+
+                            <div class="cidade_forms" id="cidade-devolucao-div" style="display: none;">
+                                <div class="div_estado">
+                                    <label for="uf_dev">Estado</label>
+                                    <select id="uf_dev" name="uf_dev">
+                                    </select>
+                                </div>
+
+                                <div class="div_agencia">
+                                    <label for="ag_dev">Agencia</label>
+                                    <select id="ag_dev" name="ag_dev">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dia e hora de RETIRADA -->
+                <div class="data-hora">
+                    <div class="barra-icone">
+                        <img class="icone" src="../imagens/diversos/data.png">
+                    </div>
+
+                    <div>
+                        <div>
+                            <div class="barra-titulo" style="width: 100%;">Retirada</div>
+                        </div>
+
+                        <div style="width: fit-content; display: flex;">
+                            <div class="data_forms">
+                                <label for="data_ret">Data</label>
+                                <input class="" id="data_ret" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                            </div>
+
+                            <div class="hora_forms">
+                                <label for="hora_ret">Hora</label>
+                                <select class="hora" id="hora_ret" name="hora_ret">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dia e hora de DEVOLUÇÃO -->
+                <div class="data-hora">
+                    <div class="barra-icone">
+                        <img class="icone" src="../imagens/diversos/data.png">
+                    </div>
+                    <div>
+                        <div>
+                            <div class="barra-titulo" style="width: 100%;">Devolução</div>
+                        </div>
+
+                        <div style="width: fit-content; display: flex;">
+                            <div class="data_forms">
+                                <label for="data_dev">Data</label>
+                                <input class="" id="data_dev" type="text" placeholder="Select Date..." data-id="rangePlugin" readonly="readonly">
+                            </div>
+
+                            <div class="hora_forms">
+                                <label for="hora_dev">Hora</label>
+                                <select class="hora" id="hora_dev" name="hora_dev">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn_Buscar">Buscar</button>
+            </div>
+        </form>
+        
+    </div>
+
+
+    <!-- ========================================================== -->
+
+    
+    <!-- FOOTER -->
+    <footer>
+        <!-- <div class="footer_div"></div> -->
+        <div class="footer_div">
+
+            <div style="display: flex; flex-direction: column;">
+                <p class="titulo_footer" ><b>Conheça nossa empresa</b></p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <a href="../paginas/sobre_nos_teste.html" class="footer_link"><li>Sobre nós</li></a>
+                </ul>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <p><b>Informações para usuários</b></p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <a href="../paginas/cadastro.html" class="footer_link" ><li>Como alugar um carro?</li></a>
+                </ul>
+            </div>
+
+            <div>
+
+            </div>
+        </div>
+        <div class="footer_div">
+            <div><a href="index.html"><img  class="logo_DriveOn logo_DriveOn_txt" id="logo_DriveOn" src="../imagens/logo/logo-txtpreto.png"></a></div>
+            <div><p>© 2025 DriveOn. Todos os direitos reservados.</p></div>
+            <div style="flex-direction: column; gap: 5px;">
+                <p>Siga-nos em nossas redes sociais:</p>
+                <div class="redessociais">
+                    <img class="logo" src="../imagens/redessociais/facebook.png">
+                    <a href="https://www.instagram.com/locadora_driveon/?next=%2F" target="_blank">
+                    <img class="logo" src="../imagens/redessociais/instagram.png" >
+                     </a>
+                    <img class="logo" src="../imagens/redessociais/linkedin.png">
+                    <img class="logo" src="../imagens/redessociais/x.png">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========================================================== -->
+
+
+    <!-- SCRIPTS específicos -->
+
+    <!-- SCRIPTS gerais -->
+    <script src="../javascript/geral/sidebar.js"></script>
+    <script src="../javascript/geral/variavelUsuario.js"></script>
+    <script src="../javascript/geral/barrareserva.js"></script>
+
+    <!-- SCRIPT DE LINKS   carregar por último!-->
+    <script src="../javascript/geral/links.js"></script>
+
+</body>
+</html>

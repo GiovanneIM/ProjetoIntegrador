@@ -3,7 +3,7 @@
 */
 
 
-const novoUser= {img: "/imagens/padrao/usuario.png", CNH: "", endereco: {}};
+const novoUser= {img: "/imagens/padrao/usuario.png", CNH: " ", endereco: {}, telefone: " "};
 
 
 // =====================================================
