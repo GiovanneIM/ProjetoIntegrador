@@ -763,7 +763,7 @@
             "marca": "Chevrolet",
             "modelo": "Chevrolet Spin Premier",
             "preco": 97.04,
-            "disponivel": true,
+            "disponivel": false,
             "ID": 68,
             "anoFabricacao": 2019
         },

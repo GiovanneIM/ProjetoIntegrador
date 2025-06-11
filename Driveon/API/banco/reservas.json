@@ -109,6 +109,24 @@
             "id_usuario": 2,
             "id_reserva": 0,
             "status": "Agendada"
+        },
+        {
+            "retirada": {
+                "data": "12/06/2025",
+                "hora": "08:00",
+                "uf": "PA",
+                "ag": "27"
+            },
+            "devolucao": {
+                "data": "13/06/2025",
+                "hora": "08:00",
+                "uf": "PA",
+                "ag": "27"
+            },
+            "id_veiculo": "436",
+            "id_usuario": 2,
+            "id_reserva": 1,
+            "status": "Cancelada"
         }
     ],
     "3": [
