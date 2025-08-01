@@ -12,3 +12,13 @@
 <h2>Tema do Projeto: Sistema de Locação de Veículos</h2>
 <span>Criar um sistema para gerenciar locações de veículos, incluindo informações
 sobre carros, clientes e reservas.</span>
+
+
+<h2>Tecnologias usadas no projeto</h2>
+<ul>
+  <li>HTML5</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+
+  <li>Visual Studio Code</li>
+</ul>
