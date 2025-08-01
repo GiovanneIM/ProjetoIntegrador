@@ -4,9 +4,9 @@
 
 <h3>Membros do projeto:</h3>
 <ul>
+  <li>Giovanne Isaac Marques (Gerente de projeto)</li>
   <li>Marina Montaginini</li>
   <li>Paloma de Souza Vicente</li>
-  <li>Giovanne Isaac Marques</li>
 </ul>
 
 <h2>Tema do Projeto: Sistema de Locação de Veículos</h2>
