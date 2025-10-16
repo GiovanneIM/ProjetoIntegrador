@@ -107,7 +107,7 @@ Driveon/
 
 - Listagem de produtos obtidos via API
 - Login e gerenciamento de sessão
-- Aluguel de veículos
+- Lógica para aluguel de veículos
 - Comunicação entre Backend e Frontend via requisições HTTP  
 
 ---
